@@ -136,8 +136,13 @@ const handleIconClick = () => {
                 
                   <Dropdown  isOpen={dropdownOpen}  toggle={toggle} direction={direction}>
         <DropdownToggle color='none' caret><img
-
-        style={{padding:"0px",borderRadius:"100%",border:"none",height:"40px"}}
+  style={{
+    padding: "0",
+    borderRadius: "50%",
+    height: "40px",
+    border: "none",
+    boxShadow: "none",
+  }}
         src={user.profile}
         alt="Profile"
         
