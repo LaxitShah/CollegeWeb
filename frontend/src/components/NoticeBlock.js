@@ -152,9 +152,11 @@ function NoticeBlock(props) {
     <Card style={{
   height: "350px",
 //    borderTop: `5px solid ${backgroundColor} !important` ,
-//   backgroundColor: "#FFF484",
+//   backgroundColor: "#feff9c",
+  backgroundColor: "#ffff80",
+
     // color: "#fff",
-    background: "linear-gradient(140deg, #FEF693 20%, #FFEC73 100%)",
+    // background: "linear-gradient(140deg, #FEF693 20%, #FFEC73 100%)",
     position: "relative",
   borderRadius: "3%",
   overflow: "hidden",
@@ -207,7 +209,8 @@ boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.4)"
           fontWeight: "bold",
           fontSize: "20px",
         //   backgroundColor: "rgba(255, 255, 255, 0.7)",
-        backgroundColor: "#FCE148",
+        // backgroundColor: "#ffff7a",
+        backgroundColor: "#f9f96c",
           padding: "10px",
         //   border: "1px solid ",
           borderRadius: "5px",
