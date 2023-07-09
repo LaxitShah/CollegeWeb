@@ -79,8 +79,8 @@ router.get('/checkJWTtoken', (req, res, next) => {
 });
 
 router.post('/signup', (req, res, next) => {
-  // console.log("***-->"+req.body);
-  User.register(new User({ username: req.body.username, firstName: req.body.firstName, lastName: req.body.lastName }),
+  console.log("***-->"+req.body.profile);
+  User.register(new User({ username: req.body.username, firstName: req.body.firstName, lastName: req.body.lastNam,profile:req.body.profile }),
     req.body.password, (err, user) => {
 
       if (err) {

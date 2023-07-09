@@ -1,93 +1,76 @@
 import axios from 'axios';
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import CollegeNavBar from './CollegeNavBar';
-import { CollegeContext, url } from './MainComponent';
-
-
-
+import { url } from './MainComponent';
 
 function CollegeContactus({ isAdmin }) {
+  const { collegeId } = useParams();
+  const [college, setInfo] = useState();
 
-    // const{
-    //     name,email,phoneno,address,city,state
-    // }=contactDetails;
+  useEffect(() => {
+    axios
+      .get(`${url}college/${collegeId}`)
+      .then(res => setInfo(res.data))
+      .catch(err => console.log(err));
+  }, []);
 
-    // const collegeInfo = {
-    //     Name: name,
-    //     Address: address,
-    //     City: city,
-    //     State: state,
-    //     Country: "India",
-    //     PhoneNo: phoneno,
-    //     Email: email,
-    //     Image: "https://picsum.photos/500/300?img=6"
-    // }
-    // console.log(contactDetails)
-    const { collegeId } = useParams();
-    const [college, setInfo] = useState();
-    useEffect(() => {
-        axios.get(`${url}college/${collegeId}`)
-            .then(res => setInfo(res.data))
-            .catch(err => console.log(err))
-    }, [])
-    
-    // console.log(collegeDetails())
-    return (
+  return (
+    <div className="container">
+      {college ? (
         <>
-        {/* {console.log(college.Location)} */}
-            {college &&
+          <h2 className="text-center mb-5">Contact Us</h2>
 
-                <div className='container '>
-                    <h2 className='text-center mb-5'>Contact Us</h2>
-
-                    <div className='row'>
-                        <div className='  mx-auto col-12 col-md-6 mx-auto mt-5 ml-2'>
-                            <iframe
-                                style={{ width: "80%", height: "320px" }}
-                                src={college.Location+"&output=embed"}
-                            ></iframe>
-                            <br />
-                            <small>
-                                <a
-                                    href={college.Location}
-                                    style={{ color: "#0000FF", textAlign: "left" }}
-                                    target="_blank"
-                                >
-                                    Click here for Full Screen
-                                </a>
-                            </small>                 </div>
-                        <div className=' col-md-5 col-12 mt-5 ms-auto'>
-                            <div>
-                                <h3>
-                                    {college.name}
-                                </h3>
-                            </div>
-                            <div className=' mt-3'>
-
-
-                                <div > {college.address} </div>
-                                <div > {college.city} </div>
-                                <div > {college.zip} </div>
-                                <div > {college.state} </div>
-                                <div > {college.email} </div>
-                                <div > {college.phoneNo} </div>
-                                {/* {Object.entries(college).map(([key, value]) => {
-                                // console.log(key)
-                                if (key === "address" || key === "email" || key === "phoneNo"
-                                     || key === "city" || key === "state" || key === "zip")
-                                    return (
-
-                                        <div > {college[key]} </div>
-                                    )
-                            })} */}
-                            </div>
-                        </div>
-                    </div>
-                </div>}
+          <div className="row">
+            <div className="col-lg-6 col-md-12 mb-4">
+              <iframe
+                title="college-location"
+                style={{ width: '100%', height: '320px', border: '0' }}
+                src={`${college.Location}&output=embed`}
+              ></iframe>
+              <br />
+              <small>
+                <a
+                  href={college.Location}
+                  style={{ color: '#0000FF', textAlign: 'left' }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Click here for Full Screen
+                </a>
+              </small>
+            </div>
+            <div className="col-lg-6 col-md-12">
+              <div className="card p-4">
+                <h3 className="card-title mb-4">{college.name}</h3>
+                <div className="card-text">
+                  <div className="mb-3">
+                    <strong>Address:</strong> {college.address}
+                  </div>
+                  <div className="mb-3">
+                    <strong>City:</strong> {college.city}
+                  </div>
+                  <div className="mb-3">
+                    <strong>Zip:</strong> {college.zip}
+                  </div>
+                  <div className="mb-3">
+                    <strong>State:</strong> {college.state}
+                  </div>
+                  <div className="mb-3">
+                    <strong>Email:</strong> {college.email}
+                  </div>
+                  <div className="mb-3">
+                    <strong>Phone:</strong> {college.phoneNo}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </>
-
-    );
+      ) : (
+        <div>Loading...</div>
+      )}
+    </div>
+  );
 }
 
 export default CollegeContactus;

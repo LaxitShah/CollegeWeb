@@ -27,6 +27,7 @@ import CollegeList from './CollegeList';
 import Userlog from './User';
 import EditCollege from './EditCollege';
 import AcademicsList from './AcademicsList';
+import CollegeSearch from './CollegeSearch';
 
 const axios = require('axios');
 export const CollegeContext = React.createContext()
@@ -189,7 +190,11 @@ function MainComponent(props) {
                         
                         <Route  path='/contactus' element={<ContactUs />}></Route>
                         <Route  path='/createCollegeAboutUs' element={<CreateCollegeAboutUs User={User} setUser={User}/>}></Route>
-                        <Route  path='/createCollegeExplore' element={<CreateCollegeExplore />}></Route>
+                        {/* <Route  path='/createCollegeExplore' element={<CreateCollegeExplore />}> */}
+                        <Route  path='/createCollegeExplore' element={<CollegeSearch />}>
+
+
+                        </Route>
 
                     
                     {/* <div style={{height:"100%",width:"100%",backgroundColor:"#27374D"}}> */}
