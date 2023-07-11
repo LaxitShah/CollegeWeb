@@ -6,7 +6,7 @@ var logger = require('morgan');
 
 var passport = require('passport');
 var config = require('./config');
-
+const  CourseRouter = require('./routes/courseRouter');
 
 var indexRouter = require('./routes/index');
 // var usersRouter = require('./routes/users');
@@ -41,8 +41,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 // app.use('/users', usersRouter);
 app.use('/admin', adminRouter);
-app.use('/college', collegeRouter)
+app.use('/college', collegeRouter);
 app.use('/users', Router);
+app.use('/course',CourseRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

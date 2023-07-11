@@ -6,6 +6,7 @@ const authenticate = require('../authenticate');
 
 const Colleges = require('../models/college');
 const User = require('../models/user');
+const Course = require('../models/course');
 
 
 var collegeRouter = express.Router();
@@ -23,6 +24,7 @@ collegeRouter.route('/')
                 // console.log(college);
                 res.statusCode = 200;
                 res.setHeader('Content-Type', 'application/json');
+                console.log(college)
                 res.send(college);
             }, (err) => next(err))
             .catch((err) => { next(err) });
@@ -1273,7 +1275,7 @@ collegeRouter.route('/:collegeId/academics')
                 if (college !== null) {
                     res.statusCode = 200;
                     res.setHeader('Content-Type', 'application/json');
-                    console.log(req.body);
+                    // console.log(req.body);
                     college.Academics.push(req.body);
                     college.save()
                         .then((college) => {
@@ -1281,6 +1283,8 @@ collegeRouter.route('/:collegeId/academics')
                             res.setHeader('Content-Type', 'application/json');
                             res.json(college.Academics);
                         }).catch((err) => next(err))
+                       Course.find({courseName: req.body.courseName})
+                       .push(req.body)
                 }
                 else {
                     // res.statusCode = 404;
