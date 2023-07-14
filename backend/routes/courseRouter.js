@@ -92,5 +92,4 @@ courseRouter.route('/:courseName')
         )})
 
 
-
 module.exports=courseRouter;
