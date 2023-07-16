@@ -45,7 +45,7 @@ const ReEnterPassword = () => {
             <div className="contact-rightside col-12 col-md-6">
               <form onSubmit={submitData}>
                 <div className="row">
-                  <h1 className="mb-6 contact-heading">Enter your new password</h1>
+                  <h1 className="mb-6 contact-heading">Enter New Password</h1>
                   <div className="col-12 contact-input-feild">
                     <input
                       type="text"

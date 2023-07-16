@@ -5,6 +5,8 @@ import { Link, Outlet, useParams, NavLink, useNavigate, useLocation } from 'reac
 import ImageSlider from 'react-simple-image-slider';
 import UserLogin from './login';
 import { CollegeContext, headers, url } from './MainComponent';
+import '../CSS/collegeNavBar.css';
+
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&family=Roboto:ital,wght@1,900&display=swap');
@@ -99,15 +101,16 @@ function CollegeNavBar({ user, isAdmin }) {
 
 
                     <Nav className='col-7 row'>
-                        <Link className='col-12 navbar-brand text-bold ' to={`/colleges/${collegeId}/collegehome`} ><p className='fs-3 mx-auto'>{College.name}</p> </Link>
+                        <Link className='col-12 navbar-brand text-bold   ' to={`/colleges/${collegeId}/collegehome`} ><p className='fs-3 mx-auto'>{College.name}</p> </Link>
                         <Navbar.Collapse className='col-12' id="responsive-navbar-nav">
                         <Nav className="mx-auto" style={{"font-family": 'Roboto'}}>
-                                    <Link className='nav-link' to={`/colleges/${collegeId}/collegehome`} ><b className='collegeNav'>Home</b></Link>
-                                    <Link className='nav-link' to={`/colleges/${collegeId}/about`}><b>About</b></Link>
-                                    <Link className='nav-link' to={`/colleges/${collegeId}/academics`}><b> Academics </b></Link>
-                                    <Link className='nav-link' to={`/colleges/${collegeId}/notices`}><b>Notice</b></Link>
-                                    <Link className='nav-link' to={`/colleges/${collegeId}/posts`}><b>Post</b></Link>
-                                    <Link className='nav-link' to={`/colleges/${collegeId}/contact`}><b>Contact</b></Link>
+                        <Link style={{marginLeft: '30px', marginRight: '30px'}} className='nav-link nav-link-hover' to={`/colleges/${collegeId}/collegehome`} ><b className='collegeNav'>Home</b></Link>
+                        <Link style={{marginLeft: '30px', marginRight: '30px'}} className='nav-link nav-link-hover' to={`/colleges/${collegeId}/about`}><b>About</b></Link>
+                        <Link style={{marginLeft: '30px', marginRight: '30px'}} className='nav-link nav-link-hover' to={`/colleges/${collegeId}/academics`}><b> Academics </b></Link>
+                        <Link style={{marginLeft: '30px', marginRight: '30px'}} className='nav-link nav-link-hover' to={`/colleges/${collegeId}/notices`}><b>Notice</b></Link>
+                        <Link style={{marginLeft: '30px', marginRight: '30px'}} className='nav-link nav-link-hover' to={`/colleges/${collegeId}/posts`}><b>Post</b></Link>
+                        <Link style={{marginLeft: '30px', marginRight: '30px'}} className='nav-link nav-link-hover' to={`/colleges/${collegeId}/contact`}><b>Contact</b></Link>
+
                                 </Nav>
                             {/* <Nav className="mx-auto">
                             
