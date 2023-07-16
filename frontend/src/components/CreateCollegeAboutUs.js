@@ -18,7 +18,10 @@ const BlogPost = ({ isAdmin, User, setUser }) => {
   ];
 
   return (
-    <div style={{backgroundColor:"#ececec",marginBottom: "-45px"}}>
+
+  // <ScrollToTop>
+  <div style={{backgroundColor:"#ececec",marginBottom: "-45px"}}>
+
       {posts.map((post, index) => (
         <Row
           key={index}
@@ -45,6 +48,7 @@ const BlogPost = ({ isAdmin, User, setUser }) => {
         </Row>
       ))}
     </div>
+    // </ScrollToTop>
   );
 };
 

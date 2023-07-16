@@ -17,9 +17,9 @@ courseRouter.route('/')
         }, (err) => next(err));
     })
     .post((req, res, next) => {
-        
+
         Course.create(req.body)
-        
+
             .then((course) => {
                 console.log('Course Created ', course);
                 res.statusCode = 200;
@@ -30,48 +30,24 @@ courseRouter.route('/')
                 console.log(err);
                 // next(err);
             })});
-
-courseRouter.route('/:courseName')
-    .get((req, res, next) => {
-        Course.findOne({courseName:req.params.courseName})
-        // .populate('college')
-        .then((course) => {
-           
-            res.setHeader('Content-Type', 'application/json');
-            
-           
-            // res.statusCode = 200;
-            // res.setHeader('Content-Type', 'application/json');
-            if (course != null) {
-                res.statusCode = 200;
-                // res.json(course);
-                console.log("Here3");
-                if(course.college.length==0){
-                    // res.setHeader('Content-Type','application/json');
-                    console.log("Here2");
-                    
-                    res.json(course);
-                }
-                else
-                {
-
-                    course.populate('college').then((college)=>{
-                        console.log("Here");
-                        // res.setHeader('Content-Type','application/json');
-                     res.json(college);   
-                    })
-                    .catch((err)=>next(err)
-                    )
-                    
-
-                  
-                }
-            }
-            res.json(course);
-        }, (err) => next(err))
-        .catch((err) => next(err));
-    })
-    .post((req, res, next) => {
+            courseRouter.route('/:courseName')
+            .get((req, res, next) => {
+                Course.findOne({ courseName: req.params.courseName })
+                .populate('college')
+                .then((course) => {
+                    if (course != null) {
+                        res.statusCode = 200;
+                        res.setHeader('Content-Type', 'application/json');
+                        res.json(course);
+                    } else {
+                        res.statusCode = 404;
+                        res.setHeader('Content-Type', 'application/json');
+                        res.json({ error: 'Course not found' });
+                    }
+                })
+                .catch((err) => next(err));
+            })        
+        .post((req, res, next) => {
         Course.findOne({courseName:req.params.courseName})
         .then((course)=>{
             if(course!=null){
@@ -90,6 +66,7 @@ courseRouter.route('/:courseName')
             }
         }
         )})
+
 
 
 module.exports=courseRouter;

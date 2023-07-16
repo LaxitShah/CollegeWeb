@@ -12,6 +12,7 @@ import College from './College';
 import CollegeAboutUs from './CollegeAboutUs';
 import CollegeContactus from './CollegeContactus';
 import ContactUs from './ContactUs';
+import ScrollToTop from './ScrollToTop';
 import HomeComponent from './HomeComponent';
 import MainNavbar from './MainNavbar';
 import NoticeList from './NoticeList';
@@ -189,7 +190,9 @@ function MainComponent(props) {
                         <Route  path='/aboutus' element={<AboutUs />}></Route>
                         
                         <Route  path='/contactus' element={<ContactUs />}></Route>
+                        {/* <ScrollToTop> */}
                         <Route  path='/createCollegeAboutUs' element={<CreateCollegeAboutUs User={User} setUser={User}/>}></Route>
+                        {/* </ScrollToTop> */}
                         {/* <Route  path='/createCollegeExplore' element={<CreateCollegeExplore />}> */}
                         <Route  path='/createCollegeExplore' element={<CollegeSearch />}>
 
@@ -232,6 +235,7 @@ function MainComponent(props) {
                         <Route exact path='/collegehome/search' element={<Search />}></Route>
                         
                     </Routes>
+                    <ScrollToTop />
                 </BrowserRouter> 
                 
                 {/* <Button onClick={handleclick}>Click</Button> */}
