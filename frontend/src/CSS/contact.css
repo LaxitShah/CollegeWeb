@@ -35,11 +35,31 @@
 .contact-form-container {
   background-color: #02054B;
   color: white;
+  position:relative;
   border-radius: 10px;
-  padding: 40px;
+  padding: 6%;
   display: flex;
 }
-
+.contact-form-container::before {
+  content: "Contact Us ";
+  position: absolute;
+  top: 35px;
+  left: 85px;
+  font-size: 34px;
+  font-weight: bold;
+  /* padding-left: 40px; */
+  /* padding: 40px; */
+  margin: 0;
+}
+/* .contact-form-container::after {
+  content: "9687575901";
+  position: absolute;
+  top: 150px;
+  left: 10;
+  font-size: 26px;
+  color: white;
+  margin: 0;
+} */
 .contact-details {
   flex: 1;
   display: flex;

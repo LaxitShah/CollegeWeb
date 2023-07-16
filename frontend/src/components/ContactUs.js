@@ -9,11 +9,30 @@ const Contact = () => {
 
   return (
     <div className="contact-container">
-      <div className="contact-form-container">
+    <div className="contact-form-container">
+    {/* <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end" }}> */}
+    <h4 style={{ marginBottom: "320px", fontSize: "20px", marginRight: "40px", display: "flex", alignItems: "center" }}>
+    <img src="https://res.cloudinary.com/dofftzsmf/image/upload/v1689504868/icons8-phone-50_p9iogk.png" width={"32px"} alt="hello" />
+      <span style={{ marginLeft: "10px" }}>1800-1901-0001</span>
+      <p style={{marginTop:"140px",position:"absolute",marginLeft:"3px"}}>
+      <img src="https://res.cloudinary.com/dofftzsmf/image/upload/v1689505848/icons8-mail-50_qcqybq.png" width={"22px"} alt="hello" />
+      <span style={{ marginLeft: "10px" }}>collegeweb@gmail.com</span>
+      </p>
+      <p style={{marginTop:"270px",position:"absolute",marginLeft:"3px"}}>
+      <img src="https://res.cloudinary.com/dofftzsmf/image/upload/v1689506044/icons8-address-50_ylruej.png" width={"22px"} alt="hello" />
+      <span style={{ marginLeft: "10px" }}>DAIICT,Gandhinagar</span>
+      </p>
+    </h4>
+    <div></div>
+    {/* <h4 style={{ marginBottom: "520px", fontSize: "20px", marginRight: "40px"}}> */}
+
+    {/* </h4> */}
+    {/* </div> */}
         <div className="contact-details">
-          <h1>Contact</h1>
-          <p className="contact-description">Fill up the form below to contact</p>
-          <div className="contact-info">
+
+          {/* <h1>Contact</h1> */}
+          {/* <p className="contact-description" style={{position:"",marginTop:"0px",marginRight:"50px",display:""}}>Fill  the form  to contact</p> */}
+          {/* <div className="contact-info">
             <button className="contact-button">
               <span className="contact-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-phone">
@@ -36,22 +55,22 @@ const Contact = () => {
                   <path d="M21 10.5C21 18 12 23 12 23C12 23 3 18 3 10.5C3 9.12 3.84 7.88 5.24 7.22M12 22V11"></path>
                 </svg>
               </span>
-              Karnavati, India
+              Ahmedabad , India
             </button>
-          </div>
+          </div> */}
         </div>
         <div className="contact-form">
           <form onSubmit={handleSubmit}>
             <h2>Get in Touch</h2>
             <div className="form-group">
-              <input type="text" placeholder='Enter your name' id="name" required />
+              <input type="text" placeholder='Enter your name' style={{width:"350px"}} id="name" required />
             </div>
             <div className="form-group">
-              <input type="email" placeholder='Enter your email' id="email" required />
+              <input type="email" placeholder='Enter your email' id="email" style={{width:"350px"}} required />
             </div>
             <div className="form-group">
   
-              <textarea rows={8} style={{width:"300px"}} id="message" placeholder='Enter your message...' required></textarea>
+              <textarea rows={8} style={{width:"350px"}} id="message" placeholder='Enter your message...' required></textarea>
             </div>
             <button type="submit" className="submit-button">
               Send Message
