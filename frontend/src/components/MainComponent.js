@@ -12,6 +12,7 @@ import College from './College';
 import CollegeAboutUs from './CollegeAboutUs';
 import CollegeContactus from './CollegeContactus';
 import ContactUs from './ContactUs';
+import ForgetPasswordPage from './ForgetPasswordPage';
 import ScrollToTop from './ScrollToTop';
 import HomeComponent from './HomeComponent';
 import MainNavbar from './MainNavbar';
@@ -195,8 +196,8 @@ function MainComponent(props) {
                         {/* </ScrollToTop> */}
                         {/* <Route  path='/createCollegeExplore' element={<CreateCollegeExplore />}> */}
                         <Route  path='/createCollegeExplore' element={<CollegeSearch />}>
-
-
+                        </Route>
+                        <Route  path='/forgetPassword' element={<ForgetPasswordPage />}>
                         </Route>
 
                     
