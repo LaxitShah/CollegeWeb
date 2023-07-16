@@ -88,7 +88,7 @@ function UserLogin({ setUser, setlogin, isModal }) {
                 :
                 <div className='app'>
                     <a href='/' className='logo container' >
-                        <img height={40} width={100} src='https://res.cloudinary.com/dmkfgsff7/image/upload/v1647927035/CollegeWeb/logo33_jwxcqb.png' className="ms-5" />
+                        <img style={{position:"absolute",marginBottom:"40px"}}height={150} width={150} src='https://res.cloudinary.com/dofftzsmf/image/upload/v1689507529/COLLEGE_WEB_bmtrb7.png' className="ms-2" />
 
 
                     </a>
