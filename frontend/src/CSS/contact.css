@@ -43,7 +43,7 @@
 .contact-form-container::before {
   content: "Contact Us ";
   position: absolute;
-  top: 35px;
+  top: 75px;
   left: 85px;
   font-size: 34px;
   font-weight: bold;

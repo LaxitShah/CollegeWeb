@@ -11,7 +11,7 @@ const Contact = () => {
     <div className="contact-container">
     <div className="contact-form-container">
     {/* <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end" }}> */}
-    <h4 style={{ marginBottom: "320px", fontSize: "20px", marginRight: "40px", display: "flex", alignItems: "center" }}>
+    <h4 style={{ marginBottom: "250px", fontSize: "20px", marginRight: "40px", display: "flex", alignItems: "center" }}>
     <img src="https://res.cloudinary.com/dofftzsmf/image/upload/v1689504868/icons8-phone-50_p9iogk.png" width={"32px"} alt="hello" />
       <span style={{ marginLeft: "10px" }}>1800-1901-0001</span>
       <p style={{marginTop:"140px",position:"absolute",marginLeft:"3px"}}>
