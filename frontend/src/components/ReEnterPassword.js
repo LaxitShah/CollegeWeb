@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "../CSS/forgetPassword.css";
+import "../CSS/ReEnterPassword.css";
 import emailjs from "emailjs-com";
 
-const ForgetPasswordPage = () => {
+const ReEnterPassword = () => {
   const [userData, setUserData] = useState({
     firstName: "",
     lastName: "",
@@ -31,10 +31,10 @@ const ForgetPasswordPage = () => {
 
   return (
     <div>
-      <section className="contactus-section1">
-        <div className="container1">
+      <section className="contactus-section">
+        <div className="container">
           <div className="row">
-            <div className="contact-leftside1 col-12 col-md-6">
+            <div className="contact-leftside col-12 col-md-6">
               <div className="background-image">
                 {/* <img
                   src="https://res.cloudinary.com/dofftzsmf/image/upload/v1689516021/Untitled_design_mnezki.svg"
@@ -42,17 +42,17 @@ const ForgetPasswordPage = () => {
                 /> */}
               </div>
             </div>
-            <div className="contact-rightside1 col-12 col-md-6">
+            <div className="contact-rightside col-12 col-md-6">
               <form onSubmit={submitData}>
                 <div className="row">
-                  <h1 className="mb-6 contact-heading1">Forget Password?</h1>
-                  <div className="col-12 contact-input-feild1">
+                  <h1 className="mb-6 contact-heading">Enter your new password</h1>
+                  <div className="col-12 contact-input-feild">
                     <input
                       type="text"
-                      name="forgetPassword"
+                      name="reEnterPassword"
                       id="firstName"
                       className="form-control contact-input"
-                      placeholder="Enter Your Email ID"
+                      placeholder="Re-Enter Your Password"
                       style={{
                         width: "100%",
                         maxWidth: "500px",
@@ -71,7 +71,7 @@ const ForgetPasswordPage = () => {
                   <div className="col-12">
                     <button
                       type="submit"
-                      className="mt-5 btn btn-style1"
+                      className="mt-5 btn btn-style"
                       style={{
                         display: "flex",
                         justifyContent: "center",
@@ -100,4 +100,4 @@ const ForgetPasswordPage = () => {
   );
 };
 
-export default ForgetPasswordPage;
+export default ReEnterPassword;

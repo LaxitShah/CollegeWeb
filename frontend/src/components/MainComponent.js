@@ -30,6 +30,7 @@ import Userlog from './User';
 import EditCollege from './EditCollege';
 import AcademicsList from './AcademicsList';
 import CollegeSearch from './CollegeSearch';
+import ReEnterPassword from './ReEnterPassword';
 
 const axios = require('axios');
 export const CollegeContext = React.createContext()
@@ -199,7 +200,8 @@ function MainComponent(props) {
                         </Route>
                         <Route  path='/forgetPassword' element={<ForgetPasswordPage />}>
                         </Route>
-
+                        <Route  path='/reenterpassword' element={<ReEnterPassword />}>
+                        </Route>
                     
                     {/* <div style={{height:"100%",width:"100%",backgroundColor:"#27374D"}}> */}
                         <Route  path='/colleges' element={<CollegeList />}style={{height:"100vh",width:"100%",backgroundColor:"#27374D"}}   ></Route>
