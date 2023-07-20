@@ -1,92 +1,93 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Breadcrumb, BreadcrumbItem, Media, Card, CardBody, CardHeader } from 'reactstrap';
+import React from 'react';
+import '../CSS/about.css';
+import Footer from './Footer';
 
-class AboutUs extends Component {
-    render() {
-        return (
-            <div className="container">
-                <div className="row">
-                    {/* <Breadcrumb>
-                        <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
-                        <BreadcrumbItem active>About Us</BreadcrumbItem>
-                    </Breadcrumb> */}
-                    <div className="col-12 mt-2">
-                        <h3>About Us</h3>
-                        <hr />
-                    </div>
+
+const AboutUs = () => {
+  return (
+    <>
+    <div className="about-us-container">
+      <div className="banner-container">
+        <img
+          className="banner-image"
+          src="https://res.cloudinary.com/dofftzsmf/image/upload/v1689841536/about-bg_hf34y3.jpg"
+          alt="College Banner"
+        />
+        <div className="banner-overlay"></div>
+        <div className="banner-title">
+          <h1>About Us</h1>
+        </div>
+      </div>
+
+      <div className="content-container">
+            <div className="left-content">
+                <h1 className="welcome-title">Welcome to Our College</h1>
+          <p className="about-us-desc">
+          At CollegeWeb, we are more than just a website; we are a comprehensive platform dedicated to empowering students on their educational journey. Established with a vision to revolutionize the way students explore, choose, and succeed in higher education, CollegeWeb is your trusted companion in shaping a bright and promising future.
+          </p>
+          <p>
+          At CollegeWeb, we understand that choosing the right college or university is one of the most critical decisions a student will make. With a vast array of educational institutions and programs to choose from, it can often be overwhelming and confusing. That's why we are committed to simplifying the process and providing students with accurate, up-to-date, and unbiased information.
+          </p>
+        </div>
+        <div className="right-content">
+          {/* Replace 'image2.jpg' with the URL or path to your second image */}
+          <img
+            className="right-image"
+            src="https://res.cloudinary.com/dofftzsmf/image/upload/v1689850141/college-student-gaa2509696_1920_f3jbq4.jpg"
+            alt="College Image"
+          />
+        </div>
+        </div>
+
+        <></>
+        <blockquote className="motivating-quote">
+            "The future belongs to those who believe in the beauty of their dreams."
+          </blockquote>
+          <div className="founder-cards">
+            <div className="founder-card">
+              <img className="founder-image" src="https://res.cloudinary.com/dofftzsmf/image/upload/v1689857796/Untitled_nkmeko.jpg" alt="Founder 1" />
+              <div className="founder-details">
+                <h3>Arkan Mansuri</h3>
+                <p>
+                    Cofounder of CollegeWeb,Full Stack Developer
+                 </p>
+                 <div className="founder-links">
+                  <a href="https://github.com/202212055Arkan/" target="_blank" rel="noopener noreferrer">
+                    <img src="https://res.cloudinary.com/dofftzsmf/image/upload/v1689859325/icons8-github-30_cd8zke.png" alt="GitHub" />
+                  </a>
+                  <a href="https://www.linkedin.com/in/arkan-mansuri/" target="_blank" rel="noopener noreferrer">
+                    <img src="https://res.cloudinary.com/dofftzsmf/image/upload/v1689859325/icons8-linkedin-48_ttfzlh.png" alt="LinkedIn" width={"30px"} height={"30px"} />
+                  </a>
                 </div>
-                <div className="row row-content mission-section">
-                    <div className="col-12 col-md-6">
-                        <h2>Our Mission</h2>
-                        <p>
-                            Started in October 2020, CollegeWeb quickly established itself as a revolutionary platform for colleges and students to connect and share information. Our mission is to provide colleges with an easy-to-use website creation tool while helping students find the right college based on their preferences. We believe in the power of genuine student reviews to guide future students in making informed decisions.
-                        </p>
-                        <p>
-                            With CollegeWeb, we aim to create a comprehensive platform that bridges the gap between colleges and students, facilitating effective communication and engagement.
-                        </p>
-                    </div>
-                    <div className="col-12 col-md-5">
-                        <Card className="mt-2">
-                            <CardHeader className="bg-primary text-white">Facts At a Glance</CardHeader>
-                            <CardBody>
-                                <dl className="row p-1">
-                                    <dt className="col-6">Founded By</dt>
-                                    <dd className="col-6">Arkan Mansuri</dd>
-                                    <dt className="col-6">Front-End</dt>
-                                    <dd className="col-6">ReactJS, Redux, Bootstrap</dd>
-                                    <dt className="col-6">Back-End</dt>
-                                    <dd className="col-6">NodeJS, ExpressJS, MongoDB</dd>
-                                    <dt className="col-6">Launch Date</dt>
-                                    <dd className="col-6">1st October 2020</dd>
-                                </dl>
-                            </CardBody>
-                        </Card>
-                    </div>
-                    <div className="col-12 mt-5 mb-5">
-                        <Card>
-                            <CardBody className="quote">
-                                <blockquote className="blockquote">
-                                    <p className="mb-0">Everything that can be reviewed in the world, can be experienced.</p>
-                                    <footer className="blockquote-footer mt-1">
-                                        Arkan Mansuri,
-                                        <cite title="Source Title">Founder of CollegeWeb</cite>
-                                    </footer>
-                                </blockquote>
-                            </CardBody>
-                        </Card>
-                    </div>
-                </div>
-                <div className="row row-content corporate-section">
-                    <div className="col-12 mt-2">
-                        <h2>Corporate Leadership</h2>
-                    </div>
-                    <div className="col-12">
-                        <div className="row mb-2">
-                            <div className="col-12 col-md-3">
-                                <img top cap className="img img-responsive thumb" src="/assets/images/arkalax.png" alt="founder image" />
-                            </div>
-                            <div className="col-12 col-md-9 pt-2 pl-md-0">
-                                <h4>Arkan Mansuri</h4>
-                                <h6>Founder & CEO (Chief Executive Officer)</h6>
-                                <p>MERN stack web developer, passionate about improving college experiences.</p>
-                            </div>
-                        </div>
-                        <div className="row mb-2">
-                            <div className="col-12 col-md-3">
-                                <img top cap className="img img-responsive thumb" src="/assets/images/intern.png" alt="intern image" />
-                            </div>
-                            <div className="col-12 col-md-9 pt-2 pl-md-0">
-                                <h4>Laxit Shah</h4>
-                                <h6>Intern</h6>
-                                <p>Full-stack web developer, contributing to the growth of CollegeWeb.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
-        );
-    }
-}
+            <div className="founder-card">
+              <img className="founder-image" src="https://res.cloudinary.com/dofftzsmf/image/upload/v1689857024/co-founder1_ksr86d.jpg" alt="Founder 2" />
+              <div className="founder-details">
+                <h3>Laxit Shah</h3>
+                <p>
+                Cofounder of CollegeWeb,Full Stack Developer 
+                </p>
+                <div className="founder-links">
+                  <a href="https://github.com/LaxitShah/" target="_blank" rel="noopener noreferrer">
+                    <img src="https://res.cloudinary.com/dofftzsmf/image/upload/v1689859325/icons8-github-30_cd8zke.png" alt="GitHub" />
+                  </a>
+                  <a href="https://www.linkedin.com/in/laxitshah/" target="_blank" rel="noopener noreferrer">
+                    <img src="https://res.cloudinary.com/dofftzsmf/image/upload/v1689859325/icons8-linkedin-48_ttfzlh.png " width={"30px"} height={"30px"} alt="LinkedIn" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        {/* </div> */}
+        <div className="right-content">
+          {/* The right image or content that was present earlier */}
+        </div>
+
+    </div>
+        <Footer/>
+       </>
+  );
+};
 
 export default AboutUs;

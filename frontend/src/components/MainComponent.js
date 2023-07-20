@@ -20,6 +20,7 @@ import NoticeList from './NoticeList';
 import PostList from './PostList';
 import Search from './Search';
 import UserLogin from './login';
+import Footer from './Footer';
 import CreateCollegeExplore from './CreateCollegeExplore';
 import CreateCollege from './CreateCollege';
 import CollegeCategory from './CollegeCategory';
@@ -239,6 +240,7 @@ function MainComponent(props) {
                         
                     </Routes>
                     <ScrollToTop />
+                    {/* <Footer /> */}
                 </BrowserRouter> 
                 
                 {/* <Button onClick={handleclick}>Click</Button> */}
