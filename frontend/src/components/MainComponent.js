@@ -29,6 +29,8 @@ import Userlog from './User';
 import EditCollege from './EditCollege';
 import AcademicsList from './AcademicsList';
 import CollegeSearch from './CollegeSearch';
+import EditProfile from './EditProfile';
+import ForgotPassword from './ForgotPassword';
 
 const axios = require('axios');
 export const CollegeContext = React.createContext()
@@ -182,13 +184,14 @@ function MainComponent(props) {
                              User={User?User._id:undefined} />}> </Route>
                         
                         <Route path='/login'  element={<UserLogin  setlogin={setlogin} setUser={setUser}/>}> </Route>
-
+                        <Route path='/forgotPassword' element={<ForgotPassword setlogin={setlogin}/>}></Route>
                         {/* <Route  path='/signup' element={<Userlog setlogin={setlogin} setUser={setUser}/>} /> */}
 
                         <Route exact path='/signup'  element={<SignUp setlogin={setlogin} setUser={setUser}/>}> </Route>
+                        <Route  path='/editProfile' element={<EditProfile user={User} setUser={User}/>}></Route>
 
                         <Route  path='/aboutus' element={<AboutUs />}></Route>
-                        
+                    
                         <Route  path='/contactus' element={<ContactUs />}></Route>
                         {/* <ScrollToTop> */}
                         <Route  path='/createCollegeAboutUs' element={<CreateCollegeAboutUs User={User} setUser={User}/>}></Route>

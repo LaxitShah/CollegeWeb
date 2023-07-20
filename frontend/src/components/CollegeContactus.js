@@ -25,7 +25,7 @@ function CollegeContactus({ isAdmin }) {
               <iframe
                 title="college-location"
                 style={{ width: '100%', height: '320px', border: '0' }}
-                src={`${college.Location}&output=embed`}
+                src={`https://maps.google.com/maps?q=${college.Location.lat},${college.Location.lng}&hl=es&z=14&amp;output=embed&output=embed`}
               ></iframe>
               <br />
               <small>

@@ -6,10 +6,12 @@ const passportLocalMonngoose=require('passport-local-mongoose');
 const user=new Schema({
 
     firstName:{
-        type:String
+        type:String,
+        default:''
     },
     lastName:{
-        type:String
+        type:String,
+        default:''
     },
     profile:{
         type:String,

@@ -19,19 +19,48 @@ router.use(BodyParser.json())
 router.get('/login', function (req, res, next) {
   res.send('respond with a resource');
 });
+router.put('/update-password', (req, res, next) => {
+  // Find the user by their username
+  User.findOne({ username: req.body.username }, (err, user) => {
+    if (err) {
+      res.statusCode = 500;
+      res.setHeader('Content-Type', 'application/json');
+      res.json({ success: false, status: 'Internal server error', err: err });
+      return;
+    }
+    if (!user) {
+      res.statusCode = 404;
+      res.setHeader('Content-Type', 'application/json');
+      res.json({ success: false, status: 'User not found' });
+      return;
+    }
 
-// router.post('/:userId', function (req, res, next) {
-//   User.findById(req.user._id)
-//   .then(user => {
-//       user.createdColleges.push(college._id)
-//       user.save()
-//           .then(() => {
-//               res.statusCode = 200;
-//               res.setHeader('Content-Type', 'application/json');
-//               res.json(college);
-//           })
-//   })
-// });
+    // Update the password
+    user.setPassword(req.body.newPassword, (err, updatedUser) => {
+      if (err) {
+        res.statusCode = 500;
+        res.setHeader('Content-Type', 'application/json');
+        res.json({ success: false, status: 'Internal server error', err: err });
+        return;
+      }
+
+      // Save the updated user
+      updatedUser.save((err) => {
+        if (err) {
+          res.statusCode = 500;
+          res.setHeader('Content-Type', 'application/json');
+          res.json({ success: false, status: 'Internal server error', err: err });
+          return;
+        }
+
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json({ success: true, status: 'Password updated successfully' });
+      });
+    });
+  });
+});
+
 
 
 router.post('/login', (req, res, next) => {
@@ -188,6 +217,44 @@ router.post("/checkMail", (req, res, next) => {
     })
   
 })
+
+router.put("/editProfile", (req, res, next) => {
+
+  const userId = req.body.id;
+  const updates = {};
+  
+  if (req.body.firstName) {
+    updates.firstName = req.body.firstName;
+  }
+  if (req.body.lastName) {
+    updates.lastName = req.body.lastName;
+  }
+  if (req.body.profile) {
+    updates.profile = req.body.profile;
+  }
+  console.log(req.body)
+  console.log(req.body.username)
+  User.findOneAndUpdate({username:req.body.username}, updates, { new: true })
+    .then((updatedUser) => {
+      if (updatedUser) {
+        res.status(200).json({
+          message: 'Profile updated successfully',
+          user: updatedUser,
+        });
+      } else {
+        res.status(404).json({
+          message: 'User not found',
+        });
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).json({
+        message: 'Failed to update profile',
+        error: error.message,
+      });
+    });
+});
 
 router.post("/getOtp", (req, res, next) => {
 

@@ -4,6 +4,7 @@ import { Modal } from 'react-bootstrap';
 import React, { useContext, useState, useEffect } from 'react';
 import College from './College';
 import { Alert } from 'bootstrap';
+import { Link } from 'react-router-dom';
 
 
 
@@ -77,9 +78,12 @@ function UserLogin({ setUser, setlogin, isModal }) {
                                 <input type="password" value={password} className='form-control' onChange={handlePassword} placeholder='Enter Password' />
                                 {err && <p className='text-danger ms-3 mb-0 '> {err.message}</p>}
                             </div><br />
+                           
+                            <Link to='/forgotPassword'> <p>forgotPassword?</p></Link>
+
                             <button type='submit' className='btn btn-dark btn-lg btn-block'>LogIn</button>
                             {/* <p className='forgot-password text-right'><a href='#'>Forgot Password</a></p> */}
-                            <p className='text-center mt-3 mb-0'>Don't have an account?<a href='/signup'> Sign Up</a></p>
+                            <p className='text-center mt-3 mb-0'>Don't have an account?<a href='users/signup'> Sign Up</a></p>
                         </form>
                     </div>
                 </div>
@@ -104,6 +108,7 @@ function UserLogin({ setUser, setlogin, isModal }) {
                                     <label>Password</label>
                                     <input type="password" value={password} className='form-control' onChange={handlePassword} placeholder='Enter Password' />
                                     {err && <p className='text-danger ms-3 mb-0 '> {err.message}</p>}
+                                    <Link to='/forgotPassword'> <p>forgot password?</p></Link>
                                 </div><br />
                                 <button type='submit' className='btn btn-dark btn-lg btn-block'>LogIn</button>
                                 {/* <p className='forgot-password text-right'><a href='#' onClick={() => alert("nai thay badam khao")} >Forgot Password</a></p> */}

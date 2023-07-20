@@ -27,7 +27,7 @@ function MainNavbar({ user,direction, ...args  }) {
   window.location.reload();
 };
 // useEffect(()=>{
-//   axios.get()
+  
 // })
 const navLinkStyles = {
   color: "white",
@@ -136,20 +136,15 @@ const handleIconClick = () => {
                 
                   <Dropdown  isOpen={dropdownOpen}  toggle={toggle} direction={direction}>
         <DropdownToggle color='none' caret><img
-  style={{
-    padding: "0",
-    borderRadius: "50%",
-    height: "40px",
-    border: "none",
-    boxShadow: "none",
-  }}
-        src={user.profile}
+
+        style={{padding:"0px",borderRadius:"100%",border:"none",height:"40px"}}
+        src={user?user.profile:profile}
         alt="Profile"
         
       /></DropdownToggle>
         <DropdownMenu {...args}>
-          <DropdownItem header>{user.username}</DropdownItem>
-          <DropdownItem>Edit Profile</DropdownItem>
+          <DropdownItem header>{user?user.username:"NONE"}</DropdownItem>
+          <Link  to="/editProfile"><DropdownItem>Edit Profile</DropdownItem></Link>
           <DropdownItem onClick={handleLogOut}>LogOut</DropdownItem>
          
         </DropdownMenu>
