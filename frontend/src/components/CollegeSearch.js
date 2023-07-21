@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+
 import axios from 'axios';
 import SearchComp from './SearchComp';
 import '../CSS/collegeList.css';
