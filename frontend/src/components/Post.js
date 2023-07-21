@@ -144,7 +144,8 @@ function Post(props) {
                     >
                         {console.log("Like :", isLiked)}
                         {!isLiked ? <BsHeart size={28} className="mt-2 " style={{cursor:'pointer', margin: 5}} /> :
-                            <BsHeartFill size={28} className="mt-2" style={{ cursor:'pointer',margin: 5 }} />}
+                            <BsHeartFill size={28} className="mt-2" style={{ cursor:'pointer',margin: 5 ,color:"red"}} />}
+                          
                         <p className='mt-2'><b>{likes}</b></p>
                     </div>
                 </div>

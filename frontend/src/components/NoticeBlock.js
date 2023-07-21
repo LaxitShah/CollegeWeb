@@ -256,13 +256,13 @@ boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.4)"
                              Pin
                          </BsPinAngle>  
                             } 
-                            </><button onClick={() => setTitleOpen(true)} className='ms-auto col-lg-2 col-md-3 col-2 my-auto btn-sm badge btn  btn-secondary'>
+                            </><Button  style={{fontSize:"13px",padding:"7px",marginRight:"5px"}} onClick={() => setTitleOpen(true)} className='ms-auto col-lg-2 col-md-3 col-2 my-auto btn-sm badge btn  btn-secondary'>
                                     Edit
-                                </button>
+                                </Button>
                                 
-                                <button onClick={() => { deleteNoticeBlock(blockId) }} className='ms-1 col-lg-2 col-md-3 col-2 btn-sm my-auto badge btn  btn-danger'>
+                                <Button style={{fontSize:"13px",padding:"7px",marginRight:"10px"}} onClick={() => { deleteNoticeBlock(blockId) }} className='ms-2 col-lg-2 col-md-3 col-2 btn-sm my-auto badge btn  btn-danger'>
                                     Delete
-                                </button></>}
+                                </Button></>}
                             </div>
                         }
                     </Card.Title>
