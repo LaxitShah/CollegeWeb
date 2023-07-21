@@ -9,7 +9,7 @@ const courseSchema = new Schema({
     },
     college: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'college'
+        ref: 'College'
     }]
 });
 

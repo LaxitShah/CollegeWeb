@@ -6,6 +6,7 @@ import { CollegeContext, headers } from './MainComponent';
 import axios from 'axios';
 import { Modal } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
+import { Input } from 'reactstrap';
 
 
 const Axios = axios.create();
@@ -85,7 +86,7 @@ function CollegeAboutUs({ isAdmin }) {
                         <Modal.Body>
                             <div className='row'>
                                 <div className='col-6'>
-                                    <input type='file' onChange={(event) => changeNewImage(event)} />
+                                    <Input type='file' onChange={(event) => changeNewImage(event)} />
                                     <img src={newImg} className='mt-3' height="85%" width="100%" />
                                 </div>
                                 <div className='col-6'>

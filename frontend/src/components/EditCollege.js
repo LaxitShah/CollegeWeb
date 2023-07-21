@@ -6,6 +6,7 @@ import College from './College';
 import { CollegeContext, headers, url } from './MainComponent';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
+import Map1 from './Map1';
 
 const Axios = axios.create();
 
@@ -37,6 +38,7 @@ function EditCollege() {
 
     const [collegeDetails, setCollegeDetails] = useState();
     const {collegeId} = useParams();
+    const [Location,setLocation]=useState();
 
     const navigate = useNavigate()
 
@@ -48,6 +50,10 @@ function EditCollege() {
             .then(res => {
                 setCollegeDetails(res.data)
                 setLogoUrl(res.data.logo)
+                // console.log(res.data.Location)
+                // {res.data.Location?setLocation({lng:res.data.lng,lat:res.data.lat}):setLocation(null)}
+                setLocation({lng:res.data.Location?res.data.Location.lng:"72.585022",lat:res.data.Location?res.data.Location.lat:"23.033863"})
+                
             })
             .catch(err => console.log(err))
     }
@@ -73,8 +79,9 @@ function EditCollege() {
     // const { addCollege } = useContext(CollegeContext)
     const [logoUrl, setLogoUrl] = useState("")
 
-    console.log(collegeDetails)
+    // console.log(collegeDetails)
     const editCollege = (college) => {
+        college.Location=Location;
         axios.put(`${url}college/${collegeId}`, college, { headers: headers })
             .then(res => {
                 // setCollegeDetails(res.data)
@@ -277,11 +284,21 @@ function EditCollege() {
                                     <Form.Control.Feedback type="invalid" >
                                         {errors.logo}
                                     </Form.Control.Feedback>
+                                    <div className='row mt-5'>
+                                        <div className='col-6  mr-5'>
+                                        <Map1 isForm={true} Location={Location} editCollege={true} setLocation={setLocation}/>
+
+                                        </div>
+                                        <div className='col-6 ml-5'>
+
                                     {logoUrl ?
                                         <img height="300px" src={logoUrl} /> : null}
+                                    </div>
+                                    
+                                </div>
                                 </Form.Group>
 
-                                <Button type="submit" className='btn btn-success'>Save</Button>
+                                <Button type="submit" className='mb-5 btn btn-success'>Save</Button>
                             </Form>
                         )}
                     </Formik>

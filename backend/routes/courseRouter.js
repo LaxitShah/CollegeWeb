@@ -38,7 +38,8 @@ courseRouter.route('/')
                     if (course != null) {
                         res.statusCode = 200;
                         res.setHeader('Content-Type', 'application/json');
-                        res.json(course);
+                        const college=course.college.map(col=>({"c_id":col._id,"c_name":col.name,"c_city":col.city,"c_state":col.state}))
+                        res.json({"couseName":course.courseName,college});
                     } else {
                         res.statusCode = 404;
                         res.setHeader('Content-Type', 'application/json');

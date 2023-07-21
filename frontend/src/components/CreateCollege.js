@@ -36,14 +36,15 @@ function CreateCollege({isUser,setUser}) {
         console.log(e.target.files[0]);
         const formData = new FormData();
         formData.append("file", e.target.files[0]);
-        formData.append("upload_presret", "my-uploads");
-        
+        formData.append("upload_preset", "my-uploads");
+
         // formData.append("folder","newFolder");
 
         Axios.post("https://api.cloudinary.com/v1_1/dofftzsmf/image/upload", formData)
             .then((res) => {
                 console.log(res);
-                setLogoUrl(res.data.secure_url)})
+                setLogoUrl(res.data.secure_url)
+            })
             .catch((Err) => console.log(Err))
 
     }
@@ -62,7 +63,7 @@ function CreateCollege({isUser,setUser}) {
         newCollege.posts = [];
         newCollege.notices = [];
         newCollege.aboutUS = [];
-        newCollege.Location=Location?`https://maps.google.com/maps?q=${Location.lat},${Location.lng}&hl=es&z=14&amp;output=embed`:null;
+        newCollege.Location=Location?{lng:'72.585022',lat:'23.033863'}:null;
         console.log(newCollege);
         
 

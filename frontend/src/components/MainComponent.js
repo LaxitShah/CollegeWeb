@@ -12,7 +12,6 @@ import College from './College';
 import CollegeAboutUs from './CollegeAboutUs';
 import CollegeContactus from './CollegeContactus';
 import ContactUs from './ContactUs';
-import ForgetPasswordPage from './ForgetPasswordPage';
 import ScrollToTop from './ScrollToTop';
 import HomeComponent from './HomeComponent';
 import MainNavbar from './MainNavbar';
@@ -20,7 +19,6 @@ import NoticeList from './NoticeList';
 import PostList from './PostList';
 import Search from './Search';
 import UserLogin from './login';
-import Footer from './Footer';
 import CreateCollegeExplore from './CreateCollegeExplore';
 import CreateCollege from './CreateCollege';
 import CollegeCategory from './CollegeCategory';
@@ -31,7 +29,8 @@ import Userlog from './User';
 import EditCollege from './EditCollege';
 import AcademicsList from './AcademicsList';
 import CollegeSearch from './CollegeSearch';
-import ReEnterPassword from './ReEnterPassword';
+import EditProfile from './EditProfile';
+import ForgotPassword from './ForgotPassword';
 
 const axios = require('axios');
 export const CollegeContext = React.createContext()
@@ -185,24 +184,24 @@ function MainComponent(props) {
                              User={User?User._id:undefined} />}> </Route>
                         
                         <Route path='/login'  element={<UserLogin  setlogin={setlogin} setUser={setUser}/>}> </Route>
-
+                        <Route path='/forgotPassword' element={<ForgotPassword setlogin={setlogin}/>}></Route>
                         {/* <Route  path='/signup' element={<Userlog setlogin={setlogin} setUser={setUser}/>} /> */}
 
                         <Route exact path='/signup'  element={<SignUp setlogin={setlogin} setUser={setUser}/>}> </Route>
+                        <Route  path='/editProfile' element={<EditProfile user={User} setUser={User}/>}></Route>
 
                         <Route  path='/aboutus' element={<AboutUs />}></Route>
-                        
+                    
                         <Route  path='/contactus' element={<ContactUs />}></Route>
                         {/* <ScrollToTop> */}
                         <Route  path='/createCollegeAboutUs' element={<CreateCollegeAboutUs User={User} setUser={User}/>}></Route>
                         {/* </ScrollToTop> */}
                         {/* <Route  path='/createCollegeExplore' element={<CreateCollegeExplore />}> */}
                         <Route  path='/createCollegeExplore' element={<CollegeSearch />}>
+
+
                         </Route>
-                        <Route  path='/forgetPassword' element={<ForgetPasswordPage />}>
-                        </Route>
-                        <Route  path='/reenterpassword' element={<ReEnterPassword />}>
-                        </Route>
+
                     
                     {/* <div style={{height:"100%",width:"100%",backgroundColor:"#27374D"}}> */}
                         <Route  path='/colleges' element={<CollegeList />}style={{height:"100vh",width:"100%",backgroundColor:"#27374D"}}   ></Route>
@@ -240,7 +239,6 @@ function MainComponent(props) {
                         
                     </Routes>
                     <ScrollToTop />
-                    {/* <Footer /> */}
                 </BrowserRouter> 
                 
                 {/* <Button onClick={handleclick}>Click</Button> */}
