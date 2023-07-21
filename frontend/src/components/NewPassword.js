@@ -60,4 +60,5 @@ function NewPassword({ mail }) {
     );
 }
 
+
 export default NewPassword;

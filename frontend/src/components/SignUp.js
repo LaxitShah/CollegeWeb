@@ -182,9 +182,9 @@ function SignUp({ setUser, setlogin }) {
 
                             </div>
                         </Col>
-                        <Col className='my-auto'>
+                        {/* <Col className='my-auto'>
                             <RightSide />
-                        </Col>
+                        </Col> */}
                         
                     </Row> :
                     <div className='mt-5'>

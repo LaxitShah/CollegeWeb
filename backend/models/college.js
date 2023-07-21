@@ -129,7 +129,17 @@ const collegeSchema = new Schema({
     posts: [postSchema],
     notices: [noticeBlockSchema],
     aboutUs: [aboutSchema],
-    Academics:[AcademicSchema]
+    Academics:[AcademicSchema],
+    Location:{
+        lng:{
+            type:String,
+            default:"72.585022"
+        },
+        lat:{
+            type:String,
+            default:"23.033863"
+        }
+    }
 },{
     timestamps: true
 })
