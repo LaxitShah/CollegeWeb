@@ -16,9 +16,9 @@ function SliderImage({ image, id, deleteImage, editImage }) {
     };
 
     return (
-                <Card className='row m-5 border-5 '>
+                <Card className=' m-5 border-5 '>
                     <Card.Header className=''>
-                        <div className='col ms-auto'>
+                        <div className=' ms-auto'>
                         <Button  className='btn btn-md btn-secondary' onClick={() => fileRef.current.click()}>
                             Edit
                         </Button>

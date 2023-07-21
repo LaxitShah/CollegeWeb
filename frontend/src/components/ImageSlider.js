@@ -8,7 +8,10 @@ import SliderImage from './SliderImage';
 import Image from './Image';
 import { Button } from 'react-bootstrap';
 import { Input } from 'reactstrap';
+import { FaPlus } from 'react-icons/fa';
 import '../CSS/imageSlider.css';
+import { AiOutlineCamera } from 'react-icons/ai';
+import { AiOutlinePlus } from 'react-icons/ai';
 
 const Axios = axios.create();
 
@@ -35,7 +38,20 @@ function ImageSlider(props) {
     useEffect(() => {
         fetchData();
     }, [])
-
+    const buttonStyle = {
+        backgroundColor: 'black',
+        color: 'white',
+        padding: '2px',
+        borderRadius: '4px',
+        width: '120px !important',
+        border: 'none',
+        display: 'flex',
+        alignItems: 'center',
+      };
+      
+      const iconStyle = {
+        marginRight: '8px',
+      };
     const AddImage = async (file) => {
         // setImageUrl(await uploadImage(file))
         // const imgUrl = uploadImage(file)
@@ -94,17 +110,25 @@ function ImageSlider(props) {
     }
     return (
         <>
-            {isAdmin && <Button onClick={() => setShow(show => !show)}>Image</Button>}
+            {isAdmin && <Button onClick={() => setShow(show => !show)}  
+                style={{ backgroundColor: '#3b5998', color: 'white',marginLeft:'10px',padding: '10px', borderRadius: '4px', border: 'none' }}> 
+            <AiOutlineCamera size={24} /></Button>}
             {show ?
-                <div className='mx-5 row '>
-                    Image Slider Setting
-                    <input type="file" ref={fileRef} hidden onChange={(e) => AddImage(e.target.files[0])} />
-                            <Button onClick={() => fileRef.current.click()}>Add New Image</Button>
+                <div className='mx-5 '>
+                  
+                    <input className='l-0' type="file" ref={fileRef} hidden onChange={(e) => AddImage(e.target.files[0])} />
+                            <div className='button-container'>
+                                <Button className='col-12 col-md-5 col-lg-1 ml-5' onClick={() => fileRef.current.click()} >    
+                                <AiOutlinePlus size={20} style={iconStyle} />Add
+                                </Button>
+                            </div>
                     {
                         imageList && imageList != undefined && imageList != [] && imageList != "" ?
+                        <div className='row'>
+                        {
                             imageList.map(image => {
                                 return (
-                                    <div key={image._id} className=' col-3' >
+                                    <div key={image._id} className='ml-2 col-lg-4 col-md-6 col-12 ' >
                                         <Image image={image.url} id={image._id}
                                             deleteImage={deleteImage}
                                             editImage={editImage}
@@ -113,7 +137,8 @@ function ImageSlider(props) {
 
                                     </div>
                                 )
-                            })
+                            })}
+                            </div>
                             :
                             <>
                                 <div>
@@ -133,6 +158,7 @@ function ImageSlider(props) {
                             </p>
                         </Modal.Header>
                         <Modal.Body className='col-12 bg-light modalBody'>
+                            {/* hello */}
                             {/* <Input type='file' onChange={(e) => uploadImage(e.target.files[0])} /> */}
                             <input type="file" ref={fileRef} hidden onChange={(e) => AddImage(e.target.files[0])} />
                             <Button onClick={() => fileRef.current.click()}>Add New Image</Button>
@@ -141,7 +167,7 @@ function ImageSlider(props) {
                                 imageList && imageList != undefined && imageList != [] && imageList != "" ?
                                     imageList.map(image => {
                                         return (
-                                            <div key={image._id} className='mt-5' >
+                                            <div key={image._id} className='col-lg-4 col-md-4 col-6' >
                                                 <SliderImage image={image.url} id={image._id}
                                                     deleteImage={deleteImage}
                                                     editImage={editImage}

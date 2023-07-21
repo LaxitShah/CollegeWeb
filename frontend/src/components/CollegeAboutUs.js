@@ -7,7 +7,7 @@ import axios from 'axios';
 import { Modal } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { Input } from 'reactstrap';
-
+import { FaPlus } from 'react-icons/fa'; 
 
 const Axios = axios.create();
 
@@ -105,7 +105,7 @@ function CollegeAboutUs({ isAdmin }) {
                     <div className='container'>
                         <div className='d-block'>
                             <h2 className='my-2 text-center'>About Us</h2>
-                            {isAdmin && <button className='btn btn-primary mx-auto' onClick={() => setIsOpen(true)}>Add Components</button>}
+                            {isAdmin && <button className='btn btn-primary mx-auto' onClick={() => setIsOpen(true)} style={{backgroundColor:"#4285f4",border:"none"}}><FaPlus size={20}  /></button>}
                         </div>
                         {About && About != null && About != "" && About != [] ?
                         <div className='row'>
