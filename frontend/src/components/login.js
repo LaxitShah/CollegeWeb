@@ -107,9 +107,9 @@ function UserLogin({ setUser, setlogin, isModal }) {
                                 <div className='form-group'>
                                     <label>Password</label>
                                     <input type="password" value={password} className='form-control' onChange={handlePassword} placeholder='Enter Password' />
-                                    {err && <p className='text-danger ms-3 mb-0 '> {err.message}</p>}
-                                    <Link to='/forgotPassword'> <p>forgot password?</p></Link>
-                                </div><br />
+                                    {err && <p className='text-danger ms-1 mb-0 '> {err.message}</p>}
+                                    <Link  style={{color:"#2f2f30",fontSize:"16px"}} to='/forgotPassword'> <p>Forgot Password?</p></Link>
+                                </div>
                                 <button type='submit' className='btn btn-dark btn-lg btn-block'>LogIn</button>
                                 {/* <p className='forgot-password text-right'><a href='#' onClick={() => alert("nai thay badam khao")} >Forgot Password</a></p> */}
                                 <p className='text-center mt-3 mb-0'>Don't have an account?<a href='/signup'> Sign Up</a></p>
