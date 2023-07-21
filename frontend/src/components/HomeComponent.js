@@ -188,6 +188,7 @@ const createCollegeButtonStyleMobile = {
                 }}
               >
                 <p>
+                {!User?
                   <button
                     style={{
                       backgroundColor: '#0D9F8C',
@@ -252,6 +253,8 @@ const createCollegeButtonStyleMobile = {
                       ></span>
                     )}
                   </button>
+                  :<></>
+                }
                 </p>
               </div>
             </div>
