@@ -1,8 +1,10 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Input } from 'reactstrap';
+import { AiFillBell } from 'react-icons/ai';
 import { url, headers } from './MainComponent';
-
+import { FaEdit } from 'react-icons/fa';
+import { FaTrash } from 'react-icons/fa'; // Import the delete icon from the Font Awesome icon pack
 const Axios = axios.create();
 
 function Academics(props) {
@@ -83,15 +85,15 @@ function Academics(props) {
               {isAdmin && (
                 <div className=' mx-auto col-2'>
                   {!isEditClick ? (
-                    <button onClick={() => { setIsEditClick(true) }} className='btn btn-primary'>Edit</button>
+                    <button onClick={() => { setIsEditClick(true) }} className='btn btn-primary' style={{backgroundColor:"#0077b5"}}>  <FaEdit size={20}  /></button>
                   ) : (
                     <>
-                      <button onClick={() => { setIsEditClick(false); goback() }} className='btn btn-primary'>Cancel</button>
+                      <button onClick={() => { setIsEditClick(false); goback() }} className='btn btn-primary'>  <FaTrash size={20}/></button>
                       <button onClick={() => { saveComp(id) }} className='btn btn-success mt-2'>Save</button>
                     </>
                   )}
                   {!isEditClick && (
-                    <button onClick={() => delComp(id)} className='btn btn-danger mt-2'>Delete</button>
+                    <button onClick={() => delComp(id)} className='btn btn-danger mt-2'>  <FaTrash size={20} /></button>
                   )}
                 </div>
               )}

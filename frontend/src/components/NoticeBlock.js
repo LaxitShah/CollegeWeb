@@ -1,6 +1,7 @@
 import { wait } from '@testing-library/user-event/dist/utils';
 import React, { useState, useContext,useEffect } from 'react';
 import { Card, Form, Modal, Button } from 'react-bootstrap';
+import { AiOutlineCamera } from 'react-icons/ai';
 import { BsPinAngle,BsPinAngleFill } from "react-icons/bs";
 import { AiOutlineHeart, AiFillHeart, AiOutlineLike, AiFillLike } from "react-icons/ai";
 

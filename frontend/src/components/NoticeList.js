@@ -7,6 +7,7 @@ import { CollegeContext } from './MainComponent';
 import { url } from './MainComponent';
 import { token } from './MainComponent';
 import { useParams } from 'react-router-dom';
+import { AiFillBell } from 'react-icons/ai';
 import axios from 'axios';
 
 const Axios = axios.create();
@@ -126,10 +127,14 @@ function NoticeList({noticeList,isAdmin,isPin}) {
    const colorCodes = ["#C2272D", "#F8931F", "#FFFF01", "#009245", "#0193D9", "#0C04ED", "#612F90"];
     // const arr=["#000","#fff","#00ffff"]
     var count=0;
+    const iconStyle = {
+        cursor: 'pointer',
+        
+      };
     return (
         
         <div className='container'>
-            {isAdmin &&  !isPin &&<button onClick={() => setModel(true)} className='btn btn-primary'>Add NoticeBlock</button>}
+            {isAdmin &&  !isPin &&<button onClick={() => setModel(true)} className='btn btn-primary' style={{backgroundColor:"#3b5998"}} >  <AiFillBell size={20} style={iconStyle} /> Add</button>}
             {notices != undefined &&notices!="" && notices ?
             
             <Container className='row'>

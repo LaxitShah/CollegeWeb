@@ -4,6 +4,7 @@ import { Button, Container, Form, Modal, ModalHeader, ModalBody, FormGroup, Labe
 import axios from 'axios';
 import { headers, url } from './MainComponent';
 import Academics from './Academics';
+import { AiOutlinePlus } from 'react-icons/ai';
 
 const AcademicsList = ({ isAdmin }) => {
   const [Course, setCourse] = useState([]);
@@ -229,7 +230,7 @@ const AcademicsList = ({ isAdmin }) => {
         <div className="col-2">
           {isAdmin && (
             <Button color="primary" onClick={() => setIsOpen(true)}>
-              Add Course
+              <AiOutlinePlus size={20}  />
             </Button>
           )}
         </div>

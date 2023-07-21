@@ -7,6 +7,7 @@ import { headers,url,token } from './MainComponent';
 import axios from 'axios';
 import { Modal } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
+import { FaPlusCircle } from 'react-icons/fa';
 
 const Axios = axios.create()
 
@@ -107,7 +108,10 @@ function PostList(props) {
 
 
     }
-
+    const iconStyle = {
+        cursor: 'pointer',
+        marginRight:"4px"
+      };
     return (
         <>
             {/* <CollegeNavBar /> */}
@@ -117,8 +121,9 @@ function PostList(props) {
                 <div className="row">
                     <div className=" col-md-1 col-12 mb-5">
 
-                        {isAdmin && <Button className='' onClick={() => setModalClick(true)}>
-                            add Post
+                        {isAdmin && <Button className='' style={{backgroundColor:"#30064d3",alignItems:"center",alignContent:"center"}} onClick={() => setModalClick(true)}>
+                        <FaPlusCircle size={24}  style={iconStyle} />
+                            Add
                         </Button>}
                         <Modal show={modalClick} onHide={() => setModalClick(false)}>
                             <Modal.Header closeButton >

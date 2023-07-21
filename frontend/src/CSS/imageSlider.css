@@ -12,3 +12,9 @@
     width: 50vw ;  
 
 }
+.button-container {
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: flex-end; /* Align the button to the right */
+    margin-right: 5px; /* Add some right margin to create space between the button and the edge of the screen */
+  }

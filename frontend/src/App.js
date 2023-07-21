@@ -6,8 +6,8 @@ import CollegeSearch from './components/CollegeSearch';
 import ForgotPassword from './components/ForgotPassword';
 
 
-
 function App() {
+  
   return (
     <div>
       {/* <ForgotPassword/> */}
