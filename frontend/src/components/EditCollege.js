@@ -298,7 +298,7 @@ function EditCollege() {
                                 </div>
                                 </Form.Group>
 
-                                <Button type="submit" className='mb-5 btn btn-success'>Save</Button>
+                                <Button type="submit" className='mt-5 mb-5 btn btn-success'>Save</Button>
                             </Form>
                         )}
                     </Formik>

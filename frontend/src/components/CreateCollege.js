@@ -297,7 +297,7 @@ function CreateCollege({isUser,setUser}) {
                                         <Map1 isForm={true} Location={Location} setLocation={setLocation}/>
                                 </div>
 
-                                <Button className='mt-4' type="submit">Submit form</Button>
+                                <Button className='mt-5' type="submit">Submit form</Button>
                             </Form>
                         )}
                     </Formik>

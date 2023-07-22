@@ -3,6 +3,7 @@ import Map, { NavigationControl, Marker } from 'react-map-gl';
 import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { Button } from 'react-bootstrap';
+import { MdLocationOn,MdGpsFixed } from 'react-icons/md'; // Import the location icon from react-icons
 
 function Map1({ isForm, Location, setLocation, editCollege }) {
   const handleMapClick = (event) => {
@@ -25,10 +26,28 @@ function Map1({ isForm, Location, setLocation, editCollege }) {
     }
   }, [Location]);
 
+  const getCurrentLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setLocation({
+            lng: position.coords.longitude,
+            lat: position.coords.latitude
+          });
+        },
+        (error) => {
+          console.error('Error getting current location:', error);
+        }
+      );
+    } else {
+      console.error('Geolocation is not supported by this browser.');
+    }
+  };
+
   return (
     <div className="App" style={isForm ? { width: '100%', height: '190px' } : { width: '100%', height: 'calc(100vh - 77px)' }}>
       <div style={{ backgroundColor: 'black' }}></div>
-      {!isForm ? <Button>Save Location</Button> : null}
+      {  <Button className='btn-sm ml-5 mb-3' onClick={getCurrentLocation}><MdGpsFixed /> Get Current Location</Button> }
 
       <div>
         <Map
