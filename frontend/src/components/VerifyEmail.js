@@ -49,6 +49,11 @@ function VerifyEmail({ mail, handleSignUp, forgotPassword }) {
     }
     return (
         <>
+                            <a href='/' className='logo container' >
+                        <img style={{position:"absolute",marginTop:"10px",marginBottom:"10px"}}height={50} width={90} src='https://res.cloudinary.com/dofftzsmf/image/upload/v1690053767/logo-w_evvxgb.png' className="ms-2" />
+
+
+                    </a>
         {
             !newPassword?
         <div className='container border' style={{ height: "500px" }}>
