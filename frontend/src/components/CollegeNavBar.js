@@ -6,7 +6,8 @@ import ImageSlider from 'react-simple-image-slider';
 import UserLogin from './login';
 import { CollegeContext, headers, url } from './MainComponent';
 import '../CSS/collegeNavBar.css';
-
+import {NavDropdown } from 'react-bootstrap';
+import { useMediaQuery } from 'react-responsive';
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&family=Roboto:ital,wght@1,900&display=swap');
@@ -88,42 +89,59 @@ function CollegeNavBar({ user, isAdmin }) {
 
     const { setUser, setAdmin } = useContext(CollegeContext)
 
-
+    const isSmallScreen = useMediaQuery({ maxWidth: 1000 });
 
     // console.log(Clicked)
     return (
-
         <>
-            {College &&
-                <Navbar className='row'>
-                    <Link className='col-2 ms-5' to={`/colleges/${collegeId}/collegehome`}><img height={70} width={70} src={College.logo} className="  "
-                    /></Link>
+           
+        {College && (
+               <div>
+               <div className='row'>
+                 <h1 className='col-10 text-center mt-3 mb-0'>{College.name}</h1>
+               </div>
+     
+            <Navbar className='row'>
+            <Link className='col-2 ms-5' to={`/colleges/${collegeId}/collegehome`}>
+              <img height={70} width={70} src={College.logo} className='  ' />
+            </Link>
+  
+            {isSmallScreen ? (
+              <NavDropdown title='Menu' id='responsive-navbar-nav'>
+                <NavDropdown.Item href={`/colleges/${collegeId}/collegehome`}>Home</NavDropdown.Item>
+                <NavDropdown.Item href={`/colleges/${collegeId}/about`}>About</NavDropdown.Item>
+                <NavDropdown.Item href={`/colleges/${collegeId}/academics`}>Academics</NavDropdown.Item>
+                <NavDropdown.Item href={`/colleges/${collegeId}/notices`}>Notice</NavDropdown.Item>
+                <NavDropdown.Item href={`/colleges/${collegeId}/posts`}>Post</NavDropdown.Item>
+                <NavDropdown.Item href={`/colleges/${collegeId}/contact`}>Contact</NavDropdown.Item>
+              </NavDropdown>
+            ) : (
+              <div style={{marginTop:"20px"}} className='col-7 d-flex'>
 
 
-                    <Nav className='col-7 row'>
-                        <Link className='col-12 navbar-brand text-bold   ' to={`/colleges/${collegeId}/collegehome`} ><p className='fs-3 mx-auto'>{College.name}</p> </Link>
-                        <Navbar.Collapse className='col-12' id="responsive-navbar-nav">
-                        <Nav className="mx-auto" style={{"font-family": 'Roboto'}}>
-                        <Link style={{marginLeft: '30px', marginRight: '30px'}} className='nav-link nav-link-hover' to={`/colleges/${collegeId}/collegehome`} ><b className='collegeNav'>Home</b></Link>
-                        <Link style={{marginLeft: '30px', marginRight: '30px'}} className='nav-link nav-link-hover' to={`/colleges/${collegeId}/about`}><b>About</b></Link>
-                        <Link style={{marginLeft: '30px', marginRight: '30px'}} className='nav-link nav-link-hover' to={`/colleges/${collegeId}/academics`}><b> Academics </b></Link>
-                        <Link style={{marginLeft: '30px', marginRight: '30px'}} className='nav-link nav-link-hover' to={`/colleges/${collegeId}/notices`}><b>Notice</b></Link>
-                        <Link style={{marginLeft: '30px', marginRight: '30px'}} className='nav-link nav-link-hover' to={`/colleges/${collegeId}/posts`}><b>Post</b></Link>
-                        <Link style={{marginLeft: '30px', marginRight: '30px'}} className='nav-link nav-link-hover' to={`/colleges/${collegeId}/contact`}><b>Contact</b></Link>
-
-                                </Nav>
-                            {/* <Nav className="mx-auto">
-                            
-                                <Link className='nav-link' to={`/colleges/${collegeId}/collegehome`} >Home</Link>
-                                <Link className='nav-link' to={`/colleges/${collegeId}/about`}>About</Link>
-                                <Link className='nav-link' to={`/colleges/${collegeId}/academics`}>Academics</Link>
-                                <Link className='nav-link' to={`/colleges/${collegeId}/notices`}>Notice</Link>
-                                <Link className='nav-link' to={`/colleges/${collegeId}/posts`}>Post</Link>
-                                <Link className='nav-link' to={`/colleges/${collegeId}/contact`}>Contact</Link>
-                            </Nav> */}
-                        </Navbar.Collapse>
-                    </Nav>
-
+                {/* breaking point */}
+                <Link className='nav-link nav-link-hover mx-3 text-dark' to={`/colleges/${collegeId}/collegehome`}>
+                  <b className='collegeNav'>Home</b>
+                </Link>
+                <Link className='nav-link nav-link-hover mx-3 text-dark' to={`/colleges/${collegeId}/about`}>
+                  <b>About</b>
+                </Link>
+                <Link className='nav-link nav-link-hover mx-3 text-dark' to={`/colleges/${collegeId}/academics`}>
+                  <b>Academics</b>
+                </Link>
+                <Link className='nav-link nav-link-hover mx-3 text-dark' to={`/colleges/${collegeId}/notices`}>
+                  <b>Notice</b>
+                </Link>
+                <Link className='nav-link nav-link-hover mx-3 text-dark' to={`/colleges/${collegeId}/posts`}>
+                  <b>Post</b>
+                </Link>
+                <Link className='nav-link nav-link-hover mx-3 text-dark' to={`/colleges/${collegeId}/contact`}>
+                  <b>Contact</b>
+                </Link>
+              </div>
+            )}
+  
+            {/* //breakpoint */}
                     <Nav className='ms-auto me-5 col-1 row'>
                         {isAdmin ?
                             <Link className='navbar-brand  text-bold badge btn btn-secondary text-light'
@@ -145,9 +163,10 @@ function CollegeNavBar({ user, isAdmin }) {
                         }
                         <Navbar.Brand className='fs-5 ms-5 fw-bold col-12' >{College.followers}</Navbar.Brand>
                     </Nav>
+               
                 </Navbar>
-
-            }
+                </div>
+            )}
             <>
                 <Modal show={loginModal} onHide={() => { setLoginModal(false) }}  >
                     <Modal.Header closeButton>
@@ -164,82 +183,7 @@ function CollegeNavBar({ user, isAdmin }) {
 
 
 
-        // <div >
-
-
-
-        //     {College &&
-        //         <div>
-        //             <Navbar>
-        //                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        //                 <Container className='row'>
-        //                     <Link className='col-2 ' to={`/colleges/${collegeId}/collegehome`}><img height={70} width={70} src={College.logo} className="  "
-        //                     /></Link>
-
-        //                     <Nav className='me-5 col-6 row'>
-        //                         <Link className='col-12 navbar-brand text-bold' to={`/colleges/${collegeId}/collegehome`} ><p className=''>{College.name}</p> </Link>
-
-
-
-        //                         <Navbar.Collapse className='col-12' id="responsive-navbar-nav">
-
-        //                             <Nav className="">
-        //                                 <Link className='nav-link' to={`/colleges/${collegeId}/collegehome`} >Home</Link>
-        //                                 <Link className='nav-link' to={`/colleges/${collegeId}/about`}>About</Link>
-        //                                 <Link className='nav-link' to={`/colleges/${collegeId}/notices`}>Notice</Link>
-        //                                 <Link className='nav-link' to={`/colleges/${collegeId}/posts`}>Post</Link>
-        //                                 <Link className='nav-link' to={`/colleges/${collegeId}/contact`}>Contact</Link>
-        //                             </Nav>
-        //                         </Navbar.Collapse>
-        //                     </Nav>
-
-
-        //                     <Nav className='col-3 row'>
-        //                         {isAdmin ?
-        //                             <Link className='navbar-brand  text-bold badge btn btn-secondary text-light'
-        //                                 to={`/colleges/${collegeId}/editCollege`} >Edit College </Link>
-        //                             :
-        //                             <div>
-        //                                 {user === undefined || Clicked ? <button onClick={() => {
-
-        //                                     handleFollow(College._id);
-        //                                 }} className='badge btn btn-lg shadow-0 bg-primary text-wrap ms-lg-3 ms-sm-0 ms-2 '>
-        //                                     Follow
-        //                                 </button>
-        //                                     :
-        //                                     <button
-        //                                         onClick={() => { handleFollow(College._id); }}
-        //                                         className=' badge text-dark border border-2 shadow-0 text-wrap ms-3'>
-        //                                         Following
-        //                                     </button>}</div>
-        //                         }
-        //                         <Navbar.Brand className='fs-5 ms-5 fw-bold col-12' >{College.followers}</Navbar.Brand>
-        //                     </Nav>
-
-
-
-        //                 </Container>
-        //             </Navbar>
-
-        //             {/* <Navbar bg="light" variant="light">
-        //                 <Container>
-
-
-
-
-
-
-
-        //                 </Container>
-
-        //             </Navbar> */}
-
-        //             
-        //         </div>
-        //     }
-
-        //     {/* <ImageSlider isAdmin={isAdmin} collegeId={collegeId} /> */}
-        // </div >
+      
 
     );
 }
