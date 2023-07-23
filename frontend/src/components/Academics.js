@@ -71,14 +71,14 @@ function Academics(props) {
     }
     return (
         <div className='row mx-auto mt-5'>
-          <div className='col-6'>
-            {isEditClick ? <input type="file" onChange={(e) => uploadFile(e.target.files[0])} /> : ""}
+          <div className='col-12 col-lg-6'>
+            {isEditClick ? <Input className='mb-5' style={{width:"90%"}} type="file" onChange={(e) => uploadFile(e.target.files[0])} /> : ""}
             <img className='mx-auto' width={"90%"} height={"380px"} src={imgUrl} />
           </div>
-          <div className='col-5'>
+          <div className='col-12 col-lg-5 ' >
             <div className='row'>
               {!isEditClick ? (
-                <h2 className='col-10'>{title}</h2>
+                <h2 className='col-5 col-lg-5 mt-4 mt-lg-0 ' style={{ textAlign: "justify",marginLeft:"27%" }}>{title}</h2>
               ) : (
                 <input style={{ height: "40px" }} className='col-10' type='text' value={title} onChange={(e) => setTitle(e.target.value)} />
               )}
@@ -93,7 +93,7 @@ function Academics(props) {
                     </>
                   )}
                   {!isEditClick && (
-                    <button onClick={() => delComp(id)} className='btn btn-danger mt-2'>  <FaTrash size={20} /></button>
+                    <button onClick={() => delComp(id,courseName)} className='btn btn-danger mt-2'>  <FaTrash size={20} /></button>
                   )}
                 </div>
               )}
@@ -101,7 +101,7 @@ function Academics(props) {
             {!isEditClick ? (
               <div height={"290px"}>{description}</div>
             ) : (
-              <textarea cols={40} value={description} onChange={(e) => setDescription(e.target.value)} rows={5} width="100%" type="text" />
+              <textarea cols={70}  value={description} onChange={(e) => setDescription(e.target.value)} rows={17} width="100%" type="text" />
             )}
     
             <div className='row my-3 me-5'>

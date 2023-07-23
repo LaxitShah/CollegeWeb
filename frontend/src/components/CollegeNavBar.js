@@ -90,7 +90,7 @@ function CollegeNavBar({ user, isAdmin }) {
     const { setUser, setAdmin } = useContext(CollegeContext)
 
     const isSmallScreen = useMediaQuery({ maxWidth: 1000 });
-
+    const [Menu,setMenu]=useState("Home");
     // console.log(Clicked)
     return (
         <>
@@ -107,13 +107,15 @@ function CollegeNavBar({ user, isAdmin }) {
             </Link>
   
             {isSmallScreen ? (
-              <NavDropdown title='Menu' id='responsive-navbar-nav'>
-                <NavDropdown.Item href={`/colleges/${collegeId}/collegehome`}>Home</NavDropdown.Item>
-                <NavDropdown.Item href={`/colleges/${collegeId}/about`}>About</NavDropdown.Item>
-                <NavDropdown.Item href={`/colleges/${collegeId}/academics`}>Academics</NavDropdown.Item>
-                <NavDropdown.Item href={`/colleges/${collegeId}/notices`}>Notice</NavDropdown.Item>
-                <NavDropdown.Item href={`/colleges/${collegeId}/posts`}>Post</NavDropdown.Item>
-                <NavDropdown.Item href={`/colleges/${collegeId}/contact`}>Contact</NavDropdown.Item>
+              <NavDropdown title={Menu} id='responsive-navbar-nav'>
+               <NavDropdown.Item  style={{width:"100%"}}><Link  aria-expanded="true" style={{width:"100%"}}  to={`/colleges/${collegeId}/collegehome`}><div onClick={()=>{setMenu("Home")}} style={{width:"110%"}}>Home</div></Link></NavDropdown.Item>
+                <NavDropdown.Item  style={{width:"100%"}}><Link aria-expanded="true" style={{width:"100%"}} to={`/colleges/${collegeId}/about`}><div onClick={()=>{setMenu("About")}} style={{width:"110%"}}>About</div></Link></NavDropdown.Item>
+                <NavDropdown.Item  style={{width:"100%"}}><Link aria-expanded="true" style={{width:"100%"}} to={`/colleges/${collegeId}/academics`}><div onClick={()=>{setMenu("Academics")}} style={{width:"110%"}}>Academics</div></Link></NavDropdown.Item>
+                <NavDropdown.Item  style={{width:"100%"}}><Link aria-expanded="true" style={{width:"100%"}} to={`/colleges/${collegeId}/notices`}><div onClick={()=>{setMenu("Notice")}} style={{width:"110%"}}>Notice</div></Link></NavDropdown.Item>
+                <NavDropdown.Item  style={{width:"100%"}}><Link aria-expanded="true" style={{width:"100%"}} to={`/colleges/${collegeId}/posts`}><div onClick={()=>{setMenu("Post")}} style={{width:"110%"}}>Post</div></Link></NavDropdown.Item>
+                <NavDropdown.Item  style={{width:"100%"}}><Link aria-expanded="true" style={{width:"100%"}} to={`/colleges/${collegeId}/contact`}><div onClick={()=>{setMenu("Contact")}} style={{width:"110%"}}>Contact</div></Link></NavDropdown.Item>
+                
+               
               </NavDropdown>
             ) : (
               <div style={{marginTop:"20px"}} className='col-7 d-flex'>
