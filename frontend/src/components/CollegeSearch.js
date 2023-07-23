@@ -55,8 +55,8 @@ function CollegeSearch(props) {
           <tbody>
             <Row>
               <Col className='' style={{ textAlign: 'right', padding: '10px' }}>
-                <label className="filter-label" htmlFor="course-filter">
-                 <b style={{fontSize:"1.4vw"}}> Filter by Course</b>
+                <label className="filter-label mt-2" htmlFor="course-filter">
+                 <b  style={{fontSize:"100%"}}> Filter by Course</b>
                 </label>
               </Col>
               <Col style={{ textAlign: 'left',padding: '10px' }}>

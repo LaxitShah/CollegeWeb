@@ -49,17 +49,17 @@ function SearchComp({ collegeId, Followed, user_id, handleDelete }) {
 
   return (
     <div className='row' style={{ cursor: 'pointer', backgroundColor: '#f5f5f5', padding: '10px', borderRadius: '5px', borderBottom: '0px solid #000080', borderTop: '1px solid #000080' }}>
-      <Link className='nav-link col-sm-10 col-9 d-flex' to={`/colleges/${collegeId}/`} style={{ textDecoration: 'none', color: 'black' }}>
+      <Link className='nav-link col-lg-10 col-9 d-flex' to={`/colleges/${collegeId}/`} style={{ textDecoration: 'none', color: 'black' }}>
         <div className='col-md-2 col-lg-1 col-3 ms-md-2'>
           <img src={collegeLogo} className='border mx-auto my-auto' style={{ borderRadius: '100%', width: '70px', height: '70px' }} alt='College Logo' />
         </div>
-        <div className='text-dark fs-5 ms-lg-3 overflow-hidden'>
-          <b style={{ fontSize: '1.4vw' }}>{collegeName}</b>
-          <p style={{ fontSize: '1.6vw' }}>{collegeCity}, {collegeState}</p>
+        <div className='text-dark fs-5 ms-lg-3 col-8 col-lg-10  overflow-hidden'>
+          <b style={{ fontSize: '100%' ,fontWeight:"100vw"}}>{collegeName}</b>
+          <p style={{  fontSize: '100%' }}>{collegeCity}, {collegeState}</p>
         </div>
       </Link>
       {Followed &&
-        <div className='col-md-2 col-1 mt-2'>
+        <div className='col-3 col-lg-2 mt-2 mr-sm-2 mr-lg-0'>
           {!isFollow ?
             <button onClick={handleFollow} className='btn text-capitalize btn-md border' style={{ backgroundColor: '#000', borderRadius: '5px', color: '#fff', transition: 'background-color 0.3s ease', outline: 'none', cursor: 'pointer', boxShadow: '0 0 3px grey' }}>
               Follow
@@ -87,7 +87,7 @@ function SearchComp({ collegeId, Followed, user_id, handleDelete }) {
         </div>
       }
       {handleDelete &&
-        <div className='col-2 mt-2 ms-auto'>
+        <div className='col-3 col-lg-2 mt-2 ms-auto'>
           <button style={{ borderTop: 0 }} onClick={() => handleDelete(collegeId)} className='btn btn-md btn-danger'>Delete</button>
         </div>
       }
