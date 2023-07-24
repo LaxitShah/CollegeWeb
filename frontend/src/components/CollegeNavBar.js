@@ -8,6 +8,7 @@ import { CollegeContext, headers, url } from './MainComponent';
 import '../CSS/collegeNavBar.css';
 import {NavDropdown } from 'react-bootstrap';
 import { useMediaQuery } from 'react-responsive';
+import { Button } from 'reactstrap';
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&family=Roboto:ital,wght@1,900&display=swap');
@@ -106,8 +107,11 @@ function CollegeNavBar({ user, isAdmin }) {
               <img height={70} width={70} src={College.logo} className='  ' />
             </Link>
   
-            {isSmallScreen ? (
-              <NavDropdown title={Menu} id='responsive-navbar-nav'>
+            {isSmallScreen ? (<>
+            {/* <div className='row'> */}
+
+           
+              <NavDropdown className='col-4' title={Menu} id='responsive-navbar-nav'>
                <NavDropdown.Item  style={{width:"100%"}}><Link  aria-expanded="true" style={{width:"100%"}}  to={`/colleges/${collegeId}/collegehome`}><div onClick={()=>{setMenu("Home")}} style={{width:"110%"}}>Home</div></Link></NavDropdown.Item>
                 <NavDropdown.Item  style={{width:"100%"}}><Link aria-expanded="true" style={{width:"100%"}} to={`/colleges/${collegeId}/about`}><div onClick={()=>{setMenu("About")}} style={{width:"110%"}}>About</div></Link></NavDropdown.Item>
                 <NavDropdown.Item  style={{width:"100%"}}><Link aria-expanded="true" style={{width:"100%"}} to={`/colleges/${collegeId}/academics`}><div onClick={()=>{setMenu("Academics")}} style={{width:"110%"}}>Academics</div></Link></NavDropdown.Item>
@@ -115,8 +119,35 @@ function CollegeNavBar({ user, isAdmin }) {
                 <NavDropdown.Item  style={{width:"100%"}}><Link aria-expanded="true" style={{width:"100%"}} to={`/colleges/${collegeId}/posts`}><div onClick={()=>{setMenu("Post")}} style={{width:"110%"}}>Post</div></Link></NavDropdown.Item>
                 <NavDropdown.Item  style={{width:"100%"}}><Link aria-expanded="true" style={{width:"100%"}} to={`/colleges/${collegeId}/contact`}><div onClick={()=>{setMenu("Contact")}} style={{width:"110%"}}>Contact</div></Link></NavDropdown.Item>
                 
-               
+              
               </NavDropdown>
+                <Nav className='ms-auto col-6'>
+                {isAdmin ?
+                    <Link className='  btn btn-secondary '
+                        to={`/colleges/${collegeId}/editCollege`} >Edit</Link>
+                    :
+                    <div className='row'>
+                        {user === undefined || Clicked ? <button onClick={() => {
+
+                            handleFollow(College._id);
+                        }} className='badge btn btn-lg  ms-sm-0 me-2 '>
+                            
+                            Follow
+                        </button>
+                            :
+                            <button
+                                onClick={() => { handleFollow(College._id); }}
+                                className=' badge text-dark border border-2 shadow-0 text-wrap ms-3'>
+                                Following
+                            </button>}</div>
+                }
+                <div style={{marginLeft:"20px"}}>
+                <Navbar.Brand   className='ml-5 col-4 mx-auto fw-bold ' >{College.followers}</Navbar.Brand>
+
+                </div>
+            </Nav>
+            {/* </div> */}
+            </>
             ) : (
               <div style={{marginTop:"20px"}} className='col-7 d-flex'>
 
@@ -144,7 +175,7 @@ function CollegeNavBar({ user, isAdmin }) {
             )}
   
             {/* //breakpoint */}
-                    <Nav className='ms-auto me-5 col-1 row'>
+                    <Nav className='ms-auto me-md-5  col-lg-1 col-3 row'>
                         {isAdmin ?
                             <Link className='navbar-brand  text-bold badge btn btn-secondary text-light'
                                 to={`/colleges/${collegeId}/editCollege`} >Edit College </Link>
