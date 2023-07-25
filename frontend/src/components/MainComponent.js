@@ -55,10 +55,24 @@ function MainComponent(props) {
     const [isAdmin, setAdmin] = useState();
     const [reload,setReload] = useState(false);
     // const navigate = useNavigate()
+    const handleBackButton=()=>{
+        if (url.includes('login')) {
+        // The URL contains 'login', do something here (e.g., redirect, show a message, etc.)
+        // console.log('URL contains "login"');
+        setlogin(true)
+      } else {
+       setlogin(false)
+      }
+   
+}
+
+    
+    
     useEffect( () => {
         // await axios.get(`${url}college`)
         // .then((res)=>setCollege(res.data)
         // .catch((err)=>err)
+        
         
         if(token) {
             // axios.defaults.headers.common['Authorization'] = `Bearer ${token}`  
@@ -75,7 +89,16 @@ function MainComponent(props) {
             })    
         }
     },[])
+    useEffect(()=>{
+
+        window.addEventListener('popstate', handleBackButton);
     
+        return () => {
+          // Cleanup the event listener when the component unmounts
+          window.removeEventListener('popstate', handleBackButton);
+        };
+      
+       })
     
     // function collegeSet(collegeId) {
         

@@ -191,7 +191,7 @@ function ImageSlider(props) {
                         <>
 
 
-                            <Carousel>
+                            <Carousel interval={1700}>
                                 {imageList.map(image => {
                                     return (
                                         <Carousel.Item key={image._id}>
@@ -203,7 +203,6 @@ function ImageSlider(props) {
                                                 alt="First slide"
                                             >
                                             </img>
-                                            {/* <button onClick={() => deleteImage(image._id)}>delete</button> */}
                                         </Carousel.Item>)
                                 })}
                             </Carousel>

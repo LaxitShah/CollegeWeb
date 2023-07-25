@@ -30,7 +30,7 @@ courseRouter.route('/')
                 console.log(err);
                 // next(err);
             })});
-            courseRouter.route('/:courseName')
+courseRouter.route('/:courseName')
             .get((req, res, next) => {
                 Course.findOne({ courseName: req.params.courseName })
                 .populate('college')
@@ -70,6 +70,31 @@ courseRouter.route('/')
         }
         )})
 
+courseRouter.route('/:courseName/:collegeId')
+.delete((req,res,next)=>{
+  Course.findOne({ courseName: req.params.courseName })
+    .then((course) => {
+      if (course !== null) {
+        const collegeIdToDelete = req.params.collegeId; // Assuming the collegeId is sent in the request body
+
+        // Filter out the college from the course's college array
+        course.college = course.college.filter((col) => col != collegeIdToDelete);
+
+        course.save()
+          .then((updatedCourse) => {
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'application/json');
+            res.json(updatedCourse);
+          })
+          .catch((err) => next(err));
+      } else {
+        res.statusCode = 404;
+        res.setHeader('Content-Type', 'application/json');
+        res.json({ message: 'Course not found' });
+      }
+    })
+    .catch((err) => next(err));
+});
 
 
 module.exports=courseRouter;

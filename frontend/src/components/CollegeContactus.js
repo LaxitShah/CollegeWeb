@@ -30,7 +30,7 @@ function CollegeContactus({ isAdmin }) {
               <br />
               <small>
                 <a
-                  href={college.Location}
+                  href={`https://maps.google.com/maps?q=${college.Location.lat},${college.Location.lng}&hl=es&z=14&amp;output=embed&output`}
                   style={{ color: '#0000FF', textAlign: 'left' }}
                   target="_blank"
                   rel="noopener noreferrer"

@@ -5,6 +5,7 @@ import axios from 'axios';
 import { headers, url } from './MainComponent';
 import Academics from './Academics';
 import { AiOutlinePlus } from 'react-icons/ai';
+import { FaPlus } from 'react-icons/fa';
 
 const AcademicsList = ({ isAdmin }) => {
   const [Course, setCourse] = useState([]);
@@ -18,6 +19,18 @@ const AcademicsList = ({ isAdmin }) => {
   const [durationErr, setDurationErr] = useState("");
   const [courseOptions, setCourseOptions] = useState([]);
 
+  // Fetch course options and update the dropdown only on mount
+  useEffect(() => {
+    axios.get(`${url}course/`)
+      .then((res) => {
+        setCourseOptions(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [Course]);
+
+  // Fetch college courses and update the dropdown after deleting a course
   useEffect(() => {
     axios.get(url + "college/" + collegeId + "/academics")
       .then((res) => {
@@ -26,23 +39,19 @@ const AcademicsList = ({ isAdmin }) => {
       .catch((err) => {
         console.log(err);
       });
-
-    axios.get(`${url}course/`)
-      .then((res) => {
-        setCourseOptions(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
   }, []);
 
-  const delComp = (id) => {
+  const delComp = (id,courseName) => {
     axios
       .delete(`${url}college/${collegeId}/academics/${id}`)
       .then((res) => {
         setCourse(res.data);
       })
       .catch((err) => console.log(err));
+      axios.delete(`${url}course/${courseName}/${collegeId}`)
+      .then((res)=>{
+        console.log(res);
+      })
   };
 
   const checkData = (Name, Desc, fees, imageUrl, duration, cb) => {
@@ -150,7 +159,6 @@ const AcademicsList = ({ isAdmin }) => {
       >
         <ModalHeader toggle={() => setIsOpen(false)} >
           Upload Course
-         
         </ModalHeader>
 
         <ModalBody>
@@ -171,7 +179,7 @@ const AcademicsList = ({ isAdmin }) => {
                   style={{ width: "100%" }}
                 >
                   <option value="">Select Course</option>
-                  {courseOptions.map((course) => (
+                  {courseOptions.filter((option) => !Course.find((course) => course.courseName === option.courseName)).map((course) => (
                     <option key={course._id} value={course.courseName}>
                       {course.courseName}
                     </option>
@@ -229,8 +237,8 @@ const AcademicsList = ({ isAdmin }) => {
       <div className="row">
         <div className="col-2">
           {isAdmin && (
-            <Button color="primary" onClick={() => setIsOpen(true)}>
-              <AiOutlinePlus size={20}  />
+            <Button className='text-center' style={{marginLeft:"5%"}} color="primary" onClick={() => setIsOpen(true)}>
+              <FaPlus size={20} />
             </Button>
           )}
         </div>

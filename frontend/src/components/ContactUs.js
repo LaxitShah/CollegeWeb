@@ -1,9 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../CSS/contact.css';
+import axios from 'axios';
+import { url } from './MainComponent';
+import { Button, Modal, ModalBody, ModalFooter } from 'react-bootstrap';
+import { ModalHeader } from 'reactstrap';
 
 const Contact = () => {
+
+  const [modalOpen, setModalOpen] = useState({isOpen:false,message:"none"});
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(e.target.email.value);
+    const target=e.target;
+    axios.post(`${url}users/sendMail`,{name:target.name.value,
+    mail:target.email.value,Decription:target.message.value})
+    .then((res)=>{
+      setModalOpen({isOpen:true,message:"Message sent successfully!"});
+    })
+    .catch((err)=>{
+      setModalOpen({isOpen:true,message:"can't send mail because of some error!"});
+
+    })
     // Implement your form submission logic here
   };
 
@@ -78,6 +96,16 @@ const Contact = () => {
           </form>
         </div>
       </div>
+    
+      <Modal show={modalOpen.isOpen} toggle={() => setModalOpen({isOpen:!modalOpen,message:modalOpen.message})}>
+        <ModalHeader >Success</ModalHeader>
+        <ModalBody>
+          {modalOpen.message}
+        </ModalBody>
+        <ModalFooter>
+          <Button color="primary" onClick={() => setModalOpen({isOpen:!modalOpen,message:"none"})}>Close</Button>
+        </ModalFooter>
+      </Modal>
     </div>
   );
 };

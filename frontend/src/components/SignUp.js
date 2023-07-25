@@ -138,11 +138,13 @@ function SignUp({ setUser, setlogin }) {
            </a> */}
             {/* <MainNavbar /> */}
             <div className='m-0'>
-                <a href='/' className='container' >
-                    <img height={40} width={100} src='https://res.cloudinary.com/dmkfgsff7/image/upload/v1647927035/CollegeWeb/logo33_jwxcqb.png' className="mt-0 " />
-                </a>
+            <a href='/' className='logo container' >
+                        <img style={{position:"absolute",marginTop:"10px",marginBottom:"10px"}}height={50} width={90} src='https://res.cloudinary.com/dofftzsmf/image/upload/v1690053767/logo-w_evvxgb.png' className="ms-2" />
+
+
+                    </a>
                 {!otpPage&&!isNext  ?
-                    <Row className='ms-md ms-1'>
+                    <Row style={{marginTop:"10px"}} className='ms-md ms-1'>
 
                         <Col>
 

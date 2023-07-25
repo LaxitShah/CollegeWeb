@@ -59,7 +59,7 @@ function ForgotPassword({  setlogin }) {
                 !otppage?
                 <div className='app'>
                     <a href='/' className='logo container' >
-                        <img style={{position:"absolute",marginBottom:"40px"}}height={150} width={150} src='https://res.cloudinary.com/dofftzsmf/image/upload/v1689507529/COLLEGE_WEB_bmtrb7.png' className="ms-2" />
+                        <img style={{position:"absolute",marginTop:"10px",marginBottom:"10px"}}height={50} width={90} src='https://res.cloudinary.com/dofftzsmf/image/upload/v1690053767/logo-w_evvxgb.png' className="ms-2" />
 
 
                     </a>
@@ -75,7 +75,7 @@ function ForgotPassword({  setlogin }) {
                                 </div>
                               
                                 <button onClick={handleSubmit} className='btn btn-dark btn-lg btn-block mt-2'>Verify Email</button>
-                                <p className='text-center mb-0'>Don't have an account?<a href='/signup'> Sign Up</a></p>
+                                <p style={{marginTop:"10px"}} className='text-center mb-0'>Don't have an account?<a href='/signup'> Sign Up</a></p>
                             {/* </form> */}
                         </div>
                     </div>

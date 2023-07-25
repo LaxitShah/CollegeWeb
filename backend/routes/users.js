@@ -255,7 +255,44 @@ router.put("/editProfile", (req, res, next) => {
       });
     });
 });
+router.post("/sendMail", (req, res, next) => {
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: "collegeweb1@gmail.com",
+      pass: "cbjcmruipixhncld"
+    }
+  });
 
+  console.log(req.body.mail); // Corrected variable name
+
+  const mailOptions = {
+    from: req.body.mail,
+    to: "collegeweb1@gmail.com",
+    subject: "Contact Us Form Submission",
+    text:   
+  `From: ${req.body.name}
+    Message:    
+    ${req.body.Description}
+
+    Please respond to the sender at their provided email address: ${req.body.mail}.
+    Thank you for your attention to this matter.
+    
+    Best regards,
+    CollegeWeb
+    `,
+  };
+
+  transporter.sendMail(mailOptions, (err, info) => {
+    if (err) {
+      console.log(err);
+      res.setHeader('Content-Type', 'application/json');
+      res.status(500).json({ message: "Error sending the email." });
+    } else {
+      res.status(200).json({ message: "Email sent successfully." });
+    }
+  });
+});
 router.post("/getOtp", (req, res, next) => {
 
 
@@ -265,6 +302,7 @@ router.post("/getOtp", (req, res, next) => {
       user: "collegeweb1@gmail.com",
       pass: "cbjcmruipixhncld"
     }
+    
   })
   console.log(req.body.mail)
   const val = Math.floor(1000 + Math.random() * 9000);
@@ -273,8 +311,19 @@ router.post("/getOtp", (req, res, next) => {
     from: "sourcecodefor@gmail.com",
     to: req.body.mail,
     // to:"darshanparmar2002@gmail.com",
-    subject: "Testing",
-    text: " Otp  :   " + val,
+    subject: "CollegeWeb OTP",
+    text: `Your login OTP is:
+
+    ${val}
+    
+    This OTP is confidential. For security reasons, DO NOT share the OTP with anyone.    
+    collegeWeb takes your account security very seriously. 
+    collegeWeb will never email you and ask you to disclose or verify your CollegeWeb password, credit card, or banking account number. 
+    If you receive a suspicious email with a link to update your account information, do not click on the link—instead, report the email to collegeWeb for investigation.
+    
+    We hope to see you again soon.
+    Best Regards,
+    Team CollegeWeb`,
   };
 
   transporter.sendMail(option, function (err, info) {

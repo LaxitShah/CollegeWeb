@@ -40,11 +40,7 @@ const BlogPost2= ({ isAdmin, User, setUser }) => {
             <div style={{ marginLeft: "70px", fontFamily: "cursive", textAlign: "left" }}>
               <p style={{ marginTop: "40px", fontSize: "18px" }}>{post.description}</p>
             </div>
-            {/* {index === 0 && (
-               <div style={{ marginTop: "20px", marginLeft: "30px" }}>
-              <CreateCollege isUser={isUser} setUser={setUser} />
-              </div>
-            )} */}
+         
           </Col>
         </Row>
       ))}

@@ -186,7 +186,7 @@ function NoticeList({noticeList,isAdmin,isPin}) {
                 <h1 className='text-center ' style={{height:"300px",color:"gray", marginTop:"200px"}}>No Notices</h1>
             }
             <Modal show={isModelOpen} onHide={() => { setModel(false) }}>
-                <Modal.Header className='fs-1 fw-bolder' closeButton>
+                <Modal.Header className='' closeButton>
                     Add Notice
                 </Modal.Header>
                 <Modal.Body>
@@ -195,7 +195,6 @@ function NoticeList({noticeList,isAdmin,isPin}) {
                             <Form.Control type="text" name="noticeTitle" placeholder="Enter Notice Title" />
                         </Form.Group>
                         <Form.Group>
-                            <Form.Label className='mt-3 fs-3 fw-bold'>Notice</Form.Label>
                             <Form.Control type="text" name="description" placeholder='Enter notice description' />
                             <br />
                             <Form.Control type="file" name="noticeLink" onChange={(e) => uploadNotice(e.target.files[0])} />

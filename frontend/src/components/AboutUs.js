@@ -45,11 +45,11 @@ const AboutUs = () => {
           </blockquote>
           <div className="founder-cards">
             <div className="founder-card">
-              <img className="founder-image" src="https://res.cloudinary.com/dofftzsmf/image/upload/v1689857796/Untitled_nkmeko.jpg" alt="Founder 1" />
+              <img className="founder-image" src="https://res.cloudinary.com/dofftzsmf/image/upload/v1690025730/Founders/IMG_20230124_004713_pnn75e.jpg" alt="Founder 1" />
               <div className="founder-details">
                 <h3>Arkan Mansuri</h3>
                 <p>
-                    Cofounder of CollegeWeb,Full Stack Developer
+                    Founder of CollegeWeb,Full Stack Developer
                  </p>
                  <div className="founder-links">
                   <a href="https://github.com/202212055Arkan/" target="_blank" rel="noopener noreferrer">
