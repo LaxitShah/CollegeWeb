@@ -35,7 +35,7 @@ import ForgotPassword from './ForgotPassword';
 const axios = require('axios');
 export const CollegeContext = React.createContext()
 
-export const url = "http://localhost:4200/";
+export const url = "https://collegeweb-backend-6tic.onrender.com";
 
 
 

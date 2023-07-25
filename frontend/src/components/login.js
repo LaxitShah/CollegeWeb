@@ -5,6 +5,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import College from './College';
 import { Alert } from 'bootstrap';
 import { Link } from 'react-router-dom';
+import { url } from './MainComponent';
 
 
 
@@ -30,7 +31,7 @@ function UserLogin({ setUser, setlogin, isModal }) {
     function handleLogin(event) {
         event.preventDefault();
         // console.log("USer name :"+userName+" password: "+password)
-        fetch("http://localhost:4200/users/login", {
+        fetch(url+"users/login", {
             method: 'Post',
             headers: {
                 'Content-Type': 'application/json'
